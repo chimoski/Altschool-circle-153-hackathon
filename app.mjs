@@ -8,7 +8,7 @@ function startApp() {
   
     const header = document.querySelector('h2');
     if(header) {
-      header.textContent = 'Another attempt from a member';
+      header.textContent = 'Second Attempt from a member';
     }
   };
   
