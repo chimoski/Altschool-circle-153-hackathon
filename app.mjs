@@ -8,7 +8,7 @@ function startApp() {
   
     const header = document.querySelector('h2');
     if(header) {
-      header.textContent = 'First attempt from prince-branch';
+      header.textContent = 'second attempt from prince-branch';
     }
   };
   
