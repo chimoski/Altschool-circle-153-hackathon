@@ -7,8 +7,10 @@ function startApp() {
   console.log("make magic in here!");
 
   const header = document.querySelector("h2");
+  const p = document.createElement("p");
   if (header) {
-    header.textContent = "another attempt from Kareem";
+    header.textContent = "another attempt from Prince";
+    p.textContent = "The first Paragraph from Kareem";
   }
 }
 
