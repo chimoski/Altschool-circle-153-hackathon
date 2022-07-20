@@ -28,6 +28,15 @@ input{
     border-bottom: 1px solid hsl(0, 0%, 54%);
     width: 100%;
 }
+
+.firstName input:focus {
+    border-bottom: 1px solid hsl(92, 52%, 36%);   
+}
+
+
+.lastName input:focus{
+    border-bottom: 1px solid hsl(92, 52%, 36%);   
+}
 .lastName{
     width: 100%;
     border-bottom: 1px solid hsl(0, 0%, 54%);
