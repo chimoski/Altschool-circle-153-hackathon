@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    color:hsl(0, 0%, 0%);;
+}
+form{
+    display: block;
+    font-size: 0.875rem;
+    font-family: 'Poppins', sans-serif;
+    width: 80%;
+    margin: 20% 2%;
+    color: rgb(0, 0, 0, 0.8);
+}
+.names{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3%;
+    margin-bottom: 15%;
+}
+input{
+    border: none;
+    outline: none;
+}
+.firstName{
+    border-bottom: 1px solid hsl(0, 0%, 54%);
+    width: 100%;
+}
+.lastName{
+    width: 100%;
+    border-bottom: 1px solid hsl(0, 0%, 54%);
+}
+.email{
+    margin-bottom: 1%;
+    width: 120%;
+    border-bottom: 1px solid hsl(0, 0%, 54%);
+}
+ .email input:focus{
+    width: 100%;
+    border-bottom: 1px solid hsl(92, 52%, 36%);   
+}
+
+.box select{
+    margin-top: 5%;
+    background-color: hsl(0, 0%, 54%); 
+    border: none;
+}
+.box select:focus{
+    outline: none;
+}
+.number{
+    margin-top: 15%;
+    width: 120%;
+    border-bottom: 1px solid hsl(0, 0%, 54%);
+}
+.number input:focus{
+    width: 30%;
+    border-bottom: 1px dashed hsl(92, 52%, 36%);   
+}
+.number input{
+    margin-bottom: 2%;
+}
+.error-message{
+    color: red;
+    font-size: 0.625rem;
+    display: none;
+}
+select option{
+    border: none;
+    outline: none;
+    background-color: #fff;
+    width: 100%;
+}
+.submit{
+    margin-top: 25%;
+}
+.submit button{
+    border: none;
+    background-color: hsl(92, 52%, 36%);
+    color: #ffff;
+    padding: 20px 150px;
+    border-radius: 10px;
+}
+
+
+@media screen and (min-width:950px){
+    form{
+        margin-top: 10%;
+        width: 30%;
+        margin-left: 20%;
+
+    }
+}

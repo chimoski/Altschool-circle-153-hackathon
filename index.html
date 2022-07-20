@@ -5,14 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phonie</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h2>Hello from Circle 153</h2>
-  
+    <form action="">
+        <div class="names">
+            <div class="firstName">
+                <div class="label">
+                    <label for="">First name</label>
+                </div>
+                <input type="text">
+                
+            </div>
+            <div class="lastName">
+                <div class="label">
+                    <label for="">Last name</label>
+                </div>
+                <input type="text">
+            </div>
+            <div class="error-message"><p>please enter a valid name</div>
+        </div>
+        <div class="email">
+            <div class="label">
+                <label for="">Email</label>
+            </div>
+            <input  type="email">
+        </div>
+        <div class="error-message"><p>please enter a valid email</p></div>
+        <div class="number">
+            <label for="">Phone number</label>
+            <div class="box">
+                <select name="country-codes" id="country-codes">
+                    <option value="Nig">+234</option>
+                    <option value="Niue">+683</option>
+                    <option value="Northerns">+01</option>
+                    <option value="norway">+47</option>
+                    <option value="oman">+996</option>
+                    <option value="pakistans">+092</option>
+                </select>
+                <input type="tel">
+                
+            </div>
+            
+            
+        </div>
+        <div class="error-message"><p>please enter a valid phone number</p></div>
+        <div class="submit">
+            <button type="submit">submit</button>
+        </div>
+        
 
+    </form>
     <!-- // ============= EEND DO NOT EDIT ============== // -->
     <script src="index.mjs" type="module"></script>
     <!-- // ============= EEND DO NOT EDIT ============== // -->
