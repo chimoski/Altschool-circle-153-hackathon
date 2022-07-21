@@ -1,0 +1,136 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --customcol: #598B2C;
+}
+
+#body {
+  padding: 40px;
+  width: 50%;
+  margin: 100px auto;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.formC {
+  width: 100%;
+}
+
+
+.formgroup {
+  margin-bottom: 50px;
+  height: 2em;
+  position: relative;
+  display: flex;
+}
+
+.formgroup label {
+  font-size: 14px;
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em;
+  color: silver;
+  cursor: text;
+  transition: all 0.75s ease;
+}
+
+#tellabel{
+  left: 75px;
+}
+
+input {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #8a8a8a;
+  font-size: 14px;
+  transition: all 0.1s ease;
+}
+
+.num{
+  display: flex;
+}
+
+select {
+  /* display: none; */
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--customcol);
+  background-color: #F4F4F4;
+}
+
+select:valid{
+  border-bottom: 2px solid var(--customcol);
+}
+
+
+input:focus,
+input:not(:placeholder-shown) {
+  outline: none;
+  border-bottom: 2px solid var(--customcol);
+
+}
+
+/* animation style for labels*/
+input:focus~label,
+input:not(:placeholder-shown)~label {
+  top: -1em;
+  left: -0.1em;
+  font-size: 10px;
+  color: var(--customcol);
+}
+
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--customcol);
+  font-size: 1.1em;
+  color: white;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
+  transition: all 0.75s ease;
+
+}
+
+button:hover {
+  background-color: #74b83a;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  text-align: center;
+  background-color: var(--customcol);
+  color: whitesmoke;
+  padding: 5px;
+
+}
+
+
+
+@media (max-width: 420px) {
+  #body {
+    width: 90%;
+    margin-top: 200px;
+  }
+
+  .name {
+    display: flex;
+    gap: 10px;
+  }
+
+  #first {
+    margin-bottom: 0px;
+  }
+
+
+  input {
+    font-size: 14px;
+  }
+}

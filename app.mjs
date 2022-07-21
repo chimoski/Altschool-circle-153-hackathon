@@ -8,7 +8,7 @@ function startApp() {
   
     const header = document.querySelector('h2');
     if(header) {
-      header.textContent = 'another attempt from Khalil';
+      header.textContent = 'another attempt from Prince';
     }
   };
   

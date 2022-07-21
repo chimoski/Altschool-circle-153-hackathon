@@ -5,13 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phonie</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <h2>Hello from Circle 153</h2>
-  
+    <body>
+        <div id="body">
+          <div class="formC">
+            <div class="name">
+              <div class="formgroup" class="first">
+                <input
+                  type="text"
+                  name="first"
+                  id="first"
+                  placeholder=" "
+                  required
+                />
+                <label for="first">First name</label>
+              </div>
+    
+              <div class="formgroup" class="last">
+                <input type="text" name="Last" id="last" placeholder=" " required />
+                <label for="last">Last name</label>
+              </div>
+            </div>
+    
+            <div class="formgroup">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder=" "
+                required
+              />
+              <label for="email">Email</label>
+            </div>
+    
+            <div class="formgroup">
+              <select name="countrycodes" id="countrycodes">
+                <option style="display: none;"></option>
+                <option value="Nigeria">+(234)</option>
+                <option value="Niue">+(683)</option>
+                <option value="Northern Marianas">+(01)</option>
+                <option value=" Norway">+(47)</option>
+                <option value="Oman">+(996)</option>
+                <option value="Pakistan">+(092)</option>
+              </select>
+                <input type="tel" name="tel" id="tel" placeholder=" " required />
+              <label id="tellabel"for="tel">Phone number</label>
+            </div>
+    
+            <div><button type="submit">Submit</button></div>
+          </div>
+        </div>
+    
+        <footer>&copy Circle-153 2022</footer>
 
     <!-- // ============= EEND DO NOT EDIT ============== // -->
     <script src="index.mjs" type="module"></script>
