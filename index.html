@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Prompt:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <title>Phonie</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-    <h2>Hello from Circle 153</h2>
-  
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="form-container">
+        <form class="form" novalidate>
+          <div class="namefield">
+            <div class="form-control">
+              <input type="text" name="firstname" id="firstname" required />
+              <label for="firstname">First name</label>
+              <small></small>
+            </div>
+            <div class="form-control">
+              <input type="text" name="lastname" id="lastname" required />
+              <label for="lastname">Last name</label>
+              <small></small>
+            </div>
+          </div>
+          <div class="form-control">
+            <input type="email" name="email" id="email" required />
+            <label for="email">Email</label>
+            <small></small>
+          </div>
+          <div class="form-control form-control-number">
+            <input type="number" name="phone" id="phone" required />
+            <label for="phone">Phone-number</label>
+            <img src="" alt="logo" class="logo number-logo" />
+            <small></small>
+          </div>
+          <button type="submit" class="btn-submit">Submit</button>
+        </form>
+      </div>
+    </section>
 
     <!-- // ============= EEND DO NOT EDIT ============== // -->
     <script src="index.mjs" type="module"></script>
     <!-- // ============= EEND DO NOT EDIT ============== // -->
-</body>
+  </body>
 </html>
