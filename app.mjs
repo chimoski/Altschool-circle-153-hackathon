@@ -1,16 +1,23 @@
    
+
+   // 
+    const [mtn, airtel, glo] = [
+      "./assets/mtn-logo.png",
+      "./assets/airtel-logo.png",
+      "./assets/glo-logo.png",
+    ];
    
-   
+    const labels = document.querySelectorAll(".form-control label");
+    const firstnameEl = document.getElementById("firstname");
+    const lastnameEl = document.getElementById("lastname");
+    const emailEl = document.getElementById("email");
+    const phoneEl = document.getElementById("phone");
+    const imageEl = document.querySelector(".number-logo");
+    const form = document.querySelector(".form");
    function startApp() {
 
 
-  const labels = document.querySelectorAll(".form-control label");
-  const firstnameEl = document.getElementById("firstname");
-  const lastnameEl = document.getElementById("lastname");
-  const emailEl = document.getElementById("email");
-  const phoneEl = document.getElementById("phone");
-  const imageEl = document.querySelector(".number-logo");
-  const form = document.querySelector(".form");
+
 
   const nameRegex = /^[a-zA-Z]+$/g;
   const mtnRegex =
@@ -20,11 +27,7 @@
   const gloRegex =
     /^(\+234)?(0)?[789]05\d{7}|^(\+234)?(0)?815\d{7}|^(\+234)?(0)?811\d{7}|^(\+234)?(0)?807\d{7}/gm;
 
-  const [mtn, airtel, glo] = [
-    "./assets/mtn-logo.png",
-    "./assets/airtel-logo.png",
-    "./assets/glo-logo.png",
-  ];
+ 
 
   // Animating the labels
   labels.forEach((label) => {
