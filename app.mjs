@@ -15,6 +15,7 @@ function startApp() {
   const custom = document.querySelector(".custom-select");
   const customOptions = document.querySelector(".custom-options");
   let options = document.querySelectorAll(".option");
+  const footerSpan = document.querySelector("footer span");
 
   const nameRegex = /^[a-zA-Z]+$/g;
   const mtnRegex =
@@ -56,6 +57,10 @@ function startApp() {
   options.forEach((option) => {
     option.addEventListener("click", (e) => {
       document.getElementById("phone").value = e.target.textContent;
+      if (customOptions.classList.contains("show")) {
+        customOptions.classList.remove("show");
+        custom.classList.remove("rotate");
+      }
     });
   });
 
@@ -208,6 +213,9 @@ function startApp() {
     e.preventDefault();
     valdateInputs();
   });
+
+  // Footer Date
+  footerSpan.textContent = new Date().getFullYear();
 }
 
 // ======= DO NOT EDIT ============== //
