@@ -40,15 +40,29 @@ svg {
 }
 
 section {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  padding: 0 1.25rem;
+}
+
+section h1 {
+  color: var(--primary-color);
+  font-family: "Pacifico", cursive;
+  font-size: clamp(2rem, 8vw, 4rem);
+  margin-bottom: 2rem;
 }
 
 .form-container {
   width: 100%;
   max-width: 30rem;
   padding-inline: 1.25rem;
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+  border-radius: 3%;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .form {
@@ -90,21 +104,17 @@ section {
 }
 
 .form-control > label span {
+  color: var(--primary-color);
   display: inline-block;
   font-size: var(--fontSize-md);
   transition: transform 400ms cubic-bezier(0.65, 0.3, 0.4, 1.5);
 }
 
-.form-control > input:focus + label span,
-.form-control > input:valid + label span {
+.form__input:focus + label span,
+.form__input:not(:placeholder-shown).form__input:not(:focus) + label span {
   color: hsl(var(--accent-color));
-}
-
-.form-control > input:focus + label span,
-.form-control > input:valid + label span,
-.form-control.error label span {
   font-size: var(--fontSize-sm);
-  transform: translateY(-1.5rem);
+  transform: translateY(-1.25rem);
 }
 
 .form-control > input {
@@ -121,7 +131,6 @@ section {
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  -moz-appearance: textfield;
   appearance: none;
   margin: 0;
 }
@@ -147,12 +156,87 @@ input[type="number"] {
   padding-top: 3px;
 }
 
-.form-control > .logo {
+.form-control-number label {
+  top: -0.75rem;
+}
+
+.form-control-number > .logo {
   width: 33px;
   height: 33px;
   position: absolute;
   top: -3px;
   right: 0;
+  opacity: 0;
+  transition: opacity 400ms ease-in;
+}
+
+.form__input-number:focus + label span,
+.form__input-number:not(:placeholder-shown).form__input-number:not(:focus)
+  + label
+  span {
+  transform: translateY(-0.5rem);
+}
+
+.form__input-number:focus,
+.form__input-number:not(:placeholder-shown).form__input:not(:focus) {
+  padding-left: 4.5rem;
+}
+
+.custom-select {
+  position: absolute;
+  top: 0.4375rem;
+  background-color: rgba(133, 133, 133, 0.3);
+  padding-right: 1.5rem;
+  cursor: pointer;
+  color: rgba(133, 133, 133, 1);
+}
+
+.custom-options {
+  background-color: #fff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  color: var(--primary-color);
+  border: 0;
+  width: 4rem;
+  padding: 0.5rem 0;
+  position: absolute;
+  left: 4.375rem;
+  transition: all 400ms ease-in;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.custom-options.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.option {
+  text-align: center;
+  transition: all 400ms ease-in;
+}
+
+.option:hover {
+  background-color: hsl(var(--accent-color));
+  color: #fff;
+}
+
+.custom-arrow {
+  background: transparent;
+  color: hsl(var(--accent-color));
+  border: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 3rem;
+  pointer-events: none;
+}
+
+.custom-select i {
+  transition: transform 400ms ease;
+}
+
+.custom-select.rotate i {
+  transform: rotate(180deg);
 }
 
 .btn-submit {

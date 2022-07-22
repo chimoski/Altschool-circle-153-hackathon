@@ -7,40 +7,92 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Prompt:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Prompt:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <title>Phonie</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Circle-153-Phonie</title>
 
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section>
+      <h1>Phonie</h1>
       <div class="form-container">
         <form class="form" novalidate>
           <div class="namefield">
             <div class="form-control">
-              <input type="text" name="firstname" id="firstname" required />
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                class="form__input"
+                placeholder=" "
+                required
+              />
               <label for="firstname">First name</label>
               <small></small>
             </div>
             <div class="form-control">
-              <input type="text" name="lastname" id="lastname" required />
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                class="form__input"
+                placeholder=" "
+                required
+              />
               <label for="lastname">Last name</label>
               <small></small>
             </div>
           </div>
           <div class="form-control">
-            <input type="email" name="email" id="email" required />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form__input"
+              placeholder=" "
+              required
+            />
             <label for="email">Email</label>
             <small></small>
           </div>
           <div class="form-control form-control-number">
-            <input type="number" name="phone" id="phone" required />
+            <input
+              type="number"
+              name="phone"
+              id="phone"
+              class="form__input form__input-number"
+              placeholder=" "
+              required
+            />
             <label for="phone">Phone-number</label>
             <img src="" alt="logo" class="logo number-logo" />
             <small></small>
+            <div class="custom-wrapper">
+              <div class="custom-select">
+                <div class="fixed-option">+234</div>
+                <button class="custom-arrow">
+                  <i class="fa-solid fa-caret-down"></i>
+                </button>
+              </div>
+              <div class="custom-options">
+                <div class="option">803</div>
+                <div class="option">814</div>
+                <div class="option">703</div>
+                <div class="option">806</div>
+                <div class="option">903</div>
+              </div>
+            </div>
           </div>
+
           <button type="submit" class="btn-submit">Submit</button>
         </form>
       </div>

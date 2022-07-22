@@ -12,6 +12,9 @@ function startApp() {
   const phoneEl = document.getElementById("phone");
   const imageEl = document.querySelector(".number-logo");
   const form = document.querySelector(".form");
+  const custom = document.querySelector(".custom-select");
+  const customOptions = document.querySelector(".custom-options");
+  let options = document.querySelectorAll(".option");
 
   const nameRegex = /^[a-zA-Z]+$/g;
   const mtnRegex =
@@ -36,6 +39,24 @@ function startApp() {
           `<span style="transition-delay:${i * 50}ms">${letter}</span>`
       )
       .join("");
+  });
+
+  // animate number arrow and display custom-options
+  custom.addEventListener("click", () => {
+    custom.classList.toggle("rotate");
+    if (custom.classList.contains("rotate")) {
+      customOptions.classList.add("show");
+    } else {
+      customOptions.classList.remove("show");
+    }
+  });
+
+  // add event listener to each option;
+
+  options.forEach((option) => {
+    option.addEventListener("click", (e) => {
+      document.getElementById("phone").value = e.target.textContent;
+    });
   });
 
   // form validation
@@ -80,8 +101,6 @@ function startApp() {
       setSuccess(lastnameEl);
       console.log("successLast");
     }
-    console.log(nameRegex.test(lastname));
-    console.log(typeof lastname);
   };
 
   const validateEmail = () => {
@@ -95,26 +114,42 @@ function startApp() {
       setSuccess(emailEl);
     }
   };
+  const displayImage = (opacity) => {
+    const logo = document.querySelector(".logo");
+    if (opacity) {
+      logo.style.opacity = 1;
+    } else {
+      logo.style.opacity = 0;
+    }
+  };
 
   const validatePhonenumber = () => {
     const phone = phoneEl.value.trim();
+    let imageOpacity = false;
     if (phone === "") {
       setError(phoneEl, "phone number is required");
     } else if (mtnRegex.test(phone)) {
       imageEl.src = mtn;
       setSuccess(phoneEl);
+      imageOpacity = true;
     } else if (airtelRegex.test(phone)) {
       imageEl.src = airtel;
       setError(phoneEl, "This is not a valid mtn number");
+      imageOpacity = true;
     } else if (gloRegex.test(phone)) {
       setError(phoneEl, "This is not a valid mtn number");
       imageEl.src = glo;
+      imageOpacity = true;
     } else {
       setError(phoneEl, "This is not a nigerian number");
       imageEl.src = "";
+      imageOpacity = false;
     }
+
+    displayImage(imageOpacity);
   };
 
+  // validate all inputs onSubmit
   function valdateInputs() {
     validateFirstname();
     validateLastname();
@@ -122,6 +157,53 @@ function startApp() {
     validatePhonenumber();
   }
 
+  // run function after one sec for optimization
+  function debounceFn(cb, delay = 1000) {
+    let timeout;
+    return (...args) => {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => cb(...args), delay);
+    };
+  }
+
+  // validate after typing
+  firstnameEl.addEventListener(
+    "keyup",
+    debounceFn(() => {
+      validateFirstname();
+    })
+  );
+
+  lastnameEl.addEventListener(
+    "keyup",
+    debounceFn(() => {
+      validateLastname();
+    })
+  );
+  emailEl.addEventListener(
+    "keyup",
+    debounceFn(() => {
+      validateEmail();
+    })
+  );
+
+  phoneEl.addEventListener(
+    "keyup",
+    debounceFn(() => {
+      validatePhonenumber();
+    })
+  );
+
+  // remove non-numeric character from phone-input
+
+  phoneEl.addEventListener("keypress", (e) => {
+    e = e || window.event;
+    let charCode = typeof e.which == "undefined" ? e.keyCode : e.which;
+    let charStr = String.fromCharCode(charCode);
+    if (!charStr.match(/^[0-9]+$/)) e.preventDefault();
+  });
+
+  // validate on submit
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     valdateInputs();
