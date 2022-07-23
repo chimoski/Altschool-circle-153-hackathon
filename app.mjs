@@ -1,10 +1,5 @@
 function startApp() {
-  // Your entire app should not necessarily be coded inside this
-  // single function (though there's no penalty for that),
-  // so create and use/call additional functions from here
-
-  // pls remove the below and make some magic in here!
-
+   // //////////////////////// INITIALIZING VARIABLES ////////////////////////////////////////////////////////
   const labels = document.querySelectorAll(".form-control label");
   const firstnameEl = document.getElementById("firstname");
   const lastnameEl = document.getElementById("lastname");
@@ -14,23 +9,27 @@ function startApp() {
   const form = document.querySelector(".form");
   const custom = document.querySelector(".custom-select");
   const customOptions = document.querySelector(".custom-options");
-  let options = document.querySelectorAll(".option");
+  const fixedOption = document.querySelector(".fixed-option");
   const footerSpan = document.querySelector("footer span");
-
   const nameRegex = /^[a-zA-Z]+$/g;
-  const mtnRegex =
-    /^(\+234)?(0)?[789]0[36]\d{7}|^(\+234)?(0)?[8]1[0346]\d{7}/gm;
-  const airtelRegex =
-    /^(\+234)?(0)?[789]0[12]\d{7}|^(\+234)?(0)?[78]0[8]\d{7}|^(\+234)?(0)?907\d{7}|^(\+234)?(0)?812\d{7}/gm;
-  const gloRegex =
-    /^(\+234)?(0)?[789]05\d{7}|^(\+234)?(0)?815\d{7}|^(\+234)?(0)?811\d{7}|^(\+234)?(0)?807\d{7}/gm;
-
-  const [mtn, airtel, glo] = [
+  const mtnLines = ['07025', '07026', '0703', '0704', '0706', '0803', '0806', '0810', '0813', '0814', '0816', '0903', '0906', '0913','0916'];
+  const gloLines = ['0805', '0705', '0905', '0807', '0815', '0811', '0905'];
+  const airtelLines= ['0708', '0802', '0902', '0701', '0808', '0812', '0907'];
+  const etisalatLines = ['0809', '0909', '0817', '0818', '0908'];
+  const allLines = [...mtnLines, ...gloLines, ...airtelLines, ...etisalatLines];
+  const logos = [
+     "./assets/airtel-logo.png",
+     "./assets/etisalat-logo.png",
+     "./assets/glo-logo.png",
     "./assets/mtn-logo.png",
-    "./assets/airtel-logo.png",
-    "./assets/glo-logo.png",
   ];
+  let options = document.querySelectorAll(".option");
+  // ////////////////////////////////////////////////////////////////////////////////
 
+
+
+   // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
+  // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
   // Animating the labels
   labels.forEach((label) => {
     label.innerHTML = label.textContent
@@ -44,25 +43,38 @@ function startApp() {
 
   // animate number arrow and display custom-options
   custom.addEventListener("click", () => {
+
     custom.classList.toggle("rotate");
     if (custom.classList.contains("rotate")) {
       customOptions.classList.add("show");
     } else {
       customOptions.classList.remove("show");
     }
+
+    // close the custom-options when clicked outside
+    document.addEventListener("click", function (e) {
+      if(e.target !== custom && !custom.contains(e.target)){
+         customOptions.classList.remove("show");
+         custom.classList.remove("rotate");
+       }
   });
 
   // add event listener to each option;
-
   options.forEach((option) => {
     option.addEventListener("click", (e) => {
-      document.getElementById("phone").value = e.target.textContent;
+      fixedOption.innerHTML = e.target.textContent;
+      if(fixedOption.innerHTML != "+234") setError(phoneEl, "Only +234 is allowed");
+       else setSuccess(phoneEl);
       if (customOptions.classList.contains("show")) {
         customOptions.classList.remove("show");
         custom.classList.remove("rotate");
       }
     });
+
+    
   });
+  });
+
 
   // form validation
   const setError = (input, message) => {
@@ -119,39 +131,21 @@ function startApp() {
       setSuccess(emailEl);
     }
   };
-  const displayImage = (opacity) => {
-    const logo = document.querySelector(".logo");
-    if (opacity) {
-      logo.style.opacity = 1;
-    } else {
-      logo.style.opacity = 0;
-    }
-  };
 
   const validatePhonenumber = () => {
     const phone = phoneEl.value.trim();
-    let imageOpacity = false;
-    if (phone === "") {
-      setError(phoneEl, "phone number is required");
-    } else if (mtnRegex.test(phone)) {
-      imageEl.src = mtn;
-      setSuccess(phoneEl);
-      imageOpacity = true;
-    } else if (airtelRegex.test(phone)) {
-      imageEl.src = airtel;
-      setError(phoneEl, "This is not a valid mtn number");
-      imageOpacity = true;
-    } else if (gloRegex.test(phone)) {
-      setError(phoneEl, "This is not a valid mtn number");
-      imageEl.src = glo;
-      imageOpacity = true;
-    } else {
-      setError(phoneEl, "This is not a nigerian number");
-      imageEl.src = "";
-      imageOpacity = false;
-    }
-
-    displayImage(imageOpacity);
+     if (!phoneEl) {
+        setError(phoneEl, "phone number is required");
+      } 
+   for(let i = 0; i<mtnLines.length; i++){
+  
+    if(phone !=  mtnLines[i])
+    {
+       setError(phoneEl, "Only MTN lines are required");
+       console.log('error');
+    } setSuccess(phoneEl);
+   }
+   
   };
 
   // validate all inputs onSubmit
@@ -200,7 +194,6 @@ function startApp() {
   );
 
   // remove non-numeric character from phone-input
-
   phoneEl.addEventListener("keypress", (e) => {
     e = e || window.event;
     let charCode = typeof e.which == "undefined" ? e.keyCode : e.which;
@@ -216,6 +209,197 @@ function startApp() {
 
   // Footer Date
   footerSpan.textContent = new Date().getFullYear();
+  // ////////////////////////////////////////////////////////////////////////////////
+
+
+
+  // //////////////////////// AUTO COMPLETE AND LOGO DISPLAY PART ////////////////////////////////////////////////////////
+  // //////////////////////// AUTO COMPLETE AND LOGO DISPLAY PART ////////////////////////////////////////////////////////
+  function displayMtn (mtn,val){
+    for(let i=0; i<mtn.length; i++){
+      if (val.includes(mtn[i] ) || val.includes(mtn[i].slice(1,5))) {
+       imageEl.src = logos[3];
+      imageEl.style.opacity='1'
+     } 
+    };
+  };
+  
+  function displayEtisalat (etisalat,val){
+    for(let i=0; i<etisalat.length; i++){
+      if( val.includes(etisalat[i]) || val.includes(etisalat[i].slice(1,5))) {
+      imageEl.src = logos[1];
+     imageEl.style.opacity='1'
+    } 
+   };
+  };
+  function displayGlo(glo,val){
+    for(let i=0; i<glo.length; i++){
+      if( val.includes(glo[i]) || val.includes(glo[i].slice(1,5))) {
+      imageEl.src = logos[2];
+     imageEl.style.opacity='1'
+    } 
+   };
+  };
+  
+  function displayAirtel(airtel,val){
+    for(let i=0; i<airtel.length; i++){
+      if( val.includes(airtel[i]) || val.includes(airtel[i].slice(1,5))) {
+      imageEl.src = logos[0];
+     imageEl.style.opacity='1'
+    }
+    };
+  };
+
+  //   this functions  displays the logo 
+//   and also the auto complete whenever something is typed into the input
+function displayLogoAndAutoComplete (mtn,glo,airtel,etisalat,all) {
+  phoneEl.addEventListener('input', (e)=>{
+      const val = e.target.value;
+      autocomplete(e,all,val,mtn,airtel,glo,etisalat);
+      if(val.startsWith('0')){
+       phoneEl.maxLength =11
+      } else{
+       phoneEl.maxLength =10
+      };
+      if(!val){
+         imageEl.style.opacity = '0';  
+      };
+      for(let i=0; i<allLines.length; i++){
+          if(!val.includes(allLines[i])){
+              imageEl.style.opacity = '0';
+          }
+       };
+      displayMtn(mtn,val);
+      displayEtisalat(etisalat,val);
+      displayGlo(glo,val);
+      displayAirtel(airtel,val);
+  });
+};
+displayLogoAndAutoComplete(mtnLines,gloLines,airtelLines,etisalatLines,allLines);
+
+function autocomplete(e, all,val,mtn,airtel,glo,etisalat) {
+  let currentFocus;
+    let itemsCont, item
+     closeAllLists();
+    if (!val) { return false;}
+    currentFocus = -1;
+    itemsCont= document.createElement("DIV");
+    itemsCont.setAttribute("id",  "autocomplete-list");
+    itemsCont.setAttribute("class", "items");
+    // autoCont.appendChild(itemsCont);
+   phoneEl.parentElement.appendChild(itemsCont);
+    for (let i = 0; i < all.length; i++) {
+      if (all[i].substr(0, val.length) == val) {
+        item = document.createElement("DIV");
+        item.setAttribute('tabIndex','-1')
+        item.innerHTML = "<strong>" + all[i].substr(0, val.length) + "</strong>";
+        item.innerHTML += all[i].substr(val.length);
+        item.className="auto-field"
+        item.innerHTML += "<input  type='hidden' value='" + all[i] + "' >";
+        item.addEventListener("click", function(e) {
+          phoneEl.value = this.getElementsByTagName("input")[0].value.substr(1);
+         displayMtn(mtn, phoneEl.value);
+         displayEtisalat(etisalat,phoneEl.value);
+         displayAirtel(airtel,phoneEl.value);
+         displayGlo(glo, phoneEl.value);
+            closeAllLists();
+        });
+        itemsCont.appendChild(item);
+      }
+      if (all[i].substr(1, val.length) == val ) {
+        item = document.createElement("DIV");
+        item.innerHTML = "<strong>" + all[i].substr(1,val.length) + "</strong>";
+        item.innerHTML += all[i].substr(val.length+1);
+        item.className="auto-field"
+        item.innerHTML += "<input type='hidden' value='" + all[i] + "'>";
+        item.addEventListener("click", function(e) {
+          phoneEl.value = this.getElementsByTagName("input")[0].value.substr(1);
+          displayMtn(mtn, phoneEl.value);
+          displayEtisalat(etisalat,phoneEl.value);
+          displayAirtel(airtel,phoneEl.value);
+          displayGlo(glo, phoneEl.value);
+            closeAllLists();
+        });
+        itemsCont.appendChild(item);
+      }
+    }
+
+
+/*execute a function when one presses a key on the keyboard:*/
+phoneEl.addEventListener("keydown", function(e) {
+ 
+  let x = document.getElementById( "autocomplete-list");
+    if (x) x = x.querySelectorAll(".auto-field");
+    if (e.keyCode == 40  ) {
+      currentFocus++;
+     if(currentFocus > -1){
+      e.stopPropagation();
+      if(x[currentFocus]){
+        x[currentFocus].scrollIntoView(true)
+      }
+     }
+      addActive(x);
+    }
+     else if (e.keyCode == 38) { 
+      currentFocus--;
+      if(currentFocus > 0){
+        e.stopPropagation();
+        if(x[currentFocus]){
+          x[currentFocus].scrollIntoView(true)
+        }
+       }
+      addActive(x);
+    } else if (e.keyCode == 13) {
+
+      e.preventDefault();
+      if (x) {x[currentFocus].click(e);
+      }
+      if (currentFocus > 0) {
+    if (x) {
+      console.log(x);
+      x[currentFocus].click(e);
+    } else{
+      return false
+    }
+  }
+    }
+});
+
+
+
+function addActive(x) {
+  if (!x) return false;
+  removeActive(x);
+  if (currentFocus >= x.length) currentFocus = 0;
+  if (currentFocus < 0) currentFocus = (x.length - 1);
+  /*add class "autocomplete-active":*/
+  x[currentFocus].classList.add("autocomplete-active");
+}
+function removeActive(x) {
+  for (var i = 0; i < x.length; i++) {
+    x[i].classList.remove("autocomplete-active");
+  }
+}
+
+function closeAllLists(elmnt) {
+  var x = document.getElementsByClassName("items");
+  for (let i = 0; i < x.length; i++) {
+    if (elmnt != x[i] && elmnt != phoneEl) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+  
+  // ////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 }
 
 // ======= DO NOT EDIT ============== //
