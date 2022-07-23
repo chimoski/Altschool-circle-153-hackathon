@@ -11,6 +11,7 @@ function startApp() {
   const customOptions = document.querySelector(".custom-options");
   const fixedOption = document.querySelector(".fixed-option");
   const footerSpan = document.querySelector("footer span");
+  const button = document.querySelector('.btn-submit')
   const nameRegex = /^[a-zA-Z]+$/g;
   const mtnLines = ['07025', '07026', '0703', '0704', '0706', '0803', '0806', '0810', '0813', '0814', '0816', '0903', '0906', '0913','0916'];
   const gloLines = ['0805', '0705', '0905', '0807', '0815', '0811', '0905'];
@@ -24,10 +25,8 @@ function startApp() {
     "./assets/mtn-logo.png",
   ];
   let options = document.querySelectorAll(".option");
+  let mtn
   // ////////////////////////////////////////////////////////////////////////////////
-
-
-
    // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
   // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
   // Animating the labels
@@ -116,7 +115,6 @@ function startApp() {
       setError(lastnameEl, "enter valid name");
     } else {
       setSuccess(lastnameEl);
-      console.log("successLast");
     }
   };
 
@@ -134,18 +132,17 @@ function startApp() {
 
   const validatePhonenumber = () => {
     const phone = phoneEl.value.trim();
-     if (!phoneEl) {
-        setError(phoneEl, "phone number is required");
-      } 
    for(let i = 0; i<mtnLines.length; i++){
-  
-    if(phone !=  mtnLines[i])
-    {
-       setError(phoneEl, "Only MTN lines are required");
-       console.log('error');
-    } setSuccess(phoneEl);
+    if (phone =='') {
+      setError(phoneEl, 'Phone number is required');
+       }
+    else if(phone !== mtnLines[i] && phone !='' ){
+      setError(phoneEl, 'only MTN lines are required');
+    } 
+    else{
+       setSuccess(phoneEl)
+    }
    }
-   
   };
 
   // validate all inputs onSubmit
@@ -204,7 +201,14 @@ function startApp() {
   // validate on submit
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    valdateInputs();
+    let validated = valdateInputs();
+   
+    if(validated && fixedOption.innerHTML != "+234" && mtn == true) {
+      button.innerHTML = 'sbmitted !!!'
+    } else{
+      button.innerHTML = 'error !!!'
+    }
+   
   });
 
   // Footer Date
@@ -220,15 +224,18 @@ function startApp() {
       if (val.includes(mtn[i] ) || val.includes(mtn[i].slice(1,5))) {
        imageEl.src = logos[3];
       imageEl.style.opacity='1'
+      mtn=true
+      // setSuccess('phoneEl');
      } 
     };
   };
-  
+
   function displayEtisalat (etisalat,val){
     for(let i=0; i<etisalat.length; i++){
       if( val.includes(etisalat[i]) || val.includes(etisalat[i].slice(1,5))) {
       imageEl.src = logos[1];
      imageEl.style.opacity='1'
+    //  setError(phoneEl, 'only MTN lines are required');
     } 
    };
   };
@@ -237,6 +244,7 @@ function startApp() {
       if( val.includes(glo[i]) || val.includes(glo[i].slice(1,5))) {
       imageEl.src = logos[2];
      imageEl.style.opacity='1'
+    //  setError(phoneEl, 'only MTN lines are required');
     } 
    };
   };
@@ -246,6 +254,7 @@ function startApp() {
       if( val.includes(airtel[i]) || val.includes(airtel[i].slice(1,5))) {
       imageEl.src = logos[0];
      imageEl.style.opacity='1'
+    //  setError(phoneEl, 'only MTN lines are required');
     }
     };
   };
@@ -328,58 +337,58 @@ function autocomplete(e, all,val,mtn,airtel,glo,etisalat) {
 /*execute a function when one presses a key on the keyboard:*/
 phoneEl.addEventListener("keydown", function(e) {
  
-  let x = document.getElementById( "autocomplete-list");
-    if (x) x = x.querySelectorAll(".auto-field");
-    if (e.keyCode == 40  ) {
-      currentFocus++;
-     if(currentFocus > -1){
-      e.stopPropagation();
-      if(x[currentFocus]){
-        x[currentFocus].scrollIntoView(true)
-      }
-     }
-      addActive(x);
-    }
-     else if (e.keyCode == 38) { 
-      currentFocus--;
-      if(currentFocus > 0){
-        e.stopPropagation();
-        if(x[currentFocus]){
-          x[currentFocus].scrollIntoView(true)
-        }
-       }
-      addActive(x);
-    } else if (e.keyCode == 13) {
+  // let x = document.getElementById( "autocomplete-list");
+  //   if (x) x = x.querySelectorAll(".auto-field");
+  //   if (e.keyCode == 40  ) {
+  //     currentFocus++;
+  //    if(currentFocus > -1){
+  //     e.stopPropagation();
+  //     if(x[currentFocus]){
+  //       x[currentFocus].scrollIntoView(true);
+  //     }
+  //    }
+  //     addActive(x);
+  //   }
+  //    else if (e.keyCode == 38) { 
+  //     currentFocus--;
+  //     if(currentFocus > 0){
+  //       e.stopPropagation();
+  //       if(x[currentFocus]){
+  //         x[currentFocus].scrollIntoView(true)
+  //       }
+  //      }
+  //     addActive(x);
+  //   } else if (e.keyCode == 13) {
 
-      e.preventDefault();
-      if (x) {x[currentFocus].click(e);
-      }
-      if (currentFocus > 0) {
-    if (x) {
-      console.log(x);
-      x[currentFocus].click(e);
-    } else{
-      return false
-    }
-  }
-    }
+  //     e.preventDefault();
+  //     if (x) {x[currentFocus].click(e);
+  //     }
+  //     if (currentFocus > 0) {
+  //   if (x) {
+  //     console.log(x);
+  //     x[currentFocus].click(e);
+  //   } else{
+  //     return false
+  //   }
+  // }
+  //   }
 });
 
 
 
-function addActive(x) {
-  if (!x) return false;
-  removeActive(x);
-  if (currentFocus >= x.length) currentFocus = 0;
-  if (currentFocus < 0) currentFocus = (x.length - 1);
-  /*add class "autocomplete-active":*/
-  x[currentFocus].classList.add("autocomplete-active");
-}
-function removeActive(x) {
-  for (var i = 0; i < x.length; i++) {
-    x[i].classList.remove("autocomplete-active");
-  }
-}
+// function addActive(x) {
+//   if (!x) return false;
+//   removeActive(x);
+//   if (currentFocus >= x.length) currentFocus = 0;
+//   if (currentFocus < 0) currentFocus = (x.length - 1);
+//   /*add class "autocomplete-active":*/
+//   x[currentFocus].classList.add("autocomplete-active");
+// }
+// function removeActive(x) {
+//   for (var i = 0; i < x.length; i++) {
+//     x[i].classList.remove("autocomplete-active");
+//   }
+// }
 
 function closeAllLists(elmnt) {
   var x = document.getElementsByClassName("items");

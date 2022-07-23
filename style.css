@@ -320,18 +320,6 @@ input[type="number"] {
     z-index: 999999;
 }
 
-/* .auto-cont{
-    position: absolute;
-    color: rgb(88, 85, 85);
-    width: auto;
-    top: 2rem;
-    height: 10px;
-    left: 4.5rem;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    z-index: 10;
-  
-} */
 .auto-field{
     border-bottom: 1px solid hsla(var(--accent-color),0.1);
     padding:.5rem 1rem .2rem;
@@ -355,7 +343,7 @@ footer {
   position: absolute;
   bottom: 0;
   text-align: left;
-  width: 100%;
+  width: 100vw;
 }
 
 footer a {
@@ -364,9 +352,7 @@ footer a {
   transition: all 400ms ease-in;
 }
 
-footer a:hover {
-  color: var(--error-color);
-}
+
 
 @media (min-width: 55rem) {
   section {
@@ -402,6 +388,7 @@ footer a:hover {
   .wrapper .form-container {
     width: 100%;
     margin-left: 4rem;
+    overflow: hidden;
   }
 
   .panel {
@@ -410,7 +397,7 @@ footer a:hover {
   }
 
   .panel-text > h2 {
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.5rem, 8vw, 2rem);
   }
 
   .panel-text > p {
@@ -419,6 +406,7 @@ footer a:hover {
 
   footer {
     text-align: center;
+    width: 100vw !important;
   }
 
   footer a {
@@ -433,10 +421,16 @@ footer a:hover {
   section {
   
    
-    background-image: url("./assets/");
+    background-image: url("./assets/rose-petals.svg");
     background-attachment: fixed;
     background-position: left top;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  footer{
+    background: hsla(var(--accent-color));
+    width: 100vw;
+    text-align: center;
   }
 }
