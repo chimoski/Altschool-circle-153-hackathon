@@ -41,7 +41,7 @@ function startApp() {
     "./assets/mtn-logo.png",
   ];
   let options = document.querySelectorAll(".option");
-  let mtn;
+  let mtnLogo = false;
   // ////////////////////////////////////////////////////////////////////////////////
   // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
   // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
@@ -159,22 +159,24 @@ function startApp() {
     return valid;
   };
 
-  const validatePhonenumber = () => {
+  const validatePhonenumber = (mtn) => {
     const phone = phoneEl.value.trim();
     let valid = false;
-    if (phone === "") {
-      setError(phoneEl, "Phone number is required");
-      valid = false;
-    } else if (
-      !mtnLines.includes(phone.slice(0, 4)) &&
-      !mtnLines.includes(phone.slice(0, 5))
-    ) {
-      setError(phoneEl, "only MTN lines are required");
-      valid = false;
-    } else {
-      setSuccess(phoneEl);
-      valid = true;
-    }
+      if (phone === "") {
+        setError(phoneEl, "Phone number is required");
+        valid = false;
+      } else if (
+        // !mtn[i].includes(phone.slice(0, 4)) ||
+        // !mtn[i].slice(1,5).includes(phone.slice(0,4))
+        mtnLogo === false
+      ) {
+        setError(phoneEl, "only MTN lines are required");
+        valid = false;
+      } else {
+        setSuccess(phoneEl);
+        valid = true;
+      }
+   
 
     return valid;
 
@@ -201,7 +203,7 @@ function startApp() {
       validateFirstname() &&
       validateLastname() &&
       validateEmail() &&
-      validatePhonenumber()
+      validatePhonenumber(mtnLines)
     ) {
       valid = true;
     }
@@ -245,7 +247,7 @@ function startApp() {
   phoneEl.addEventListener(
     "keyup",
     debounceFn(() => {
-      validatePhonenumber();
+      validatePhonenumber(mtnLines);
     })
   );
 
@@ -260,8 +262,8 @@ function startApp() {
   // validate on submit
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    console.log(valdateInputs());
     let validated = valdateInputs();
-
     if (validated) {
       document.querySelector(".validated").textContent =
         "registration successful!";
@@ -286,9 +288,8 @@ function startApp() {
     for (let i = 0; i < mtn.length; i++) {
       if (val.includes(mtn[i]) || val.includes(mtn[i].slice(1, 5))) {
         imageEl.src = logos[3];
+        mtnLogo = true;
         imageEl.style.opacity = "1";
-        mtn = true;
-        // setSuccess('phoneEl');
       }
     }
   }
@@ -298,7 +299,7 @@ function startApp() {
       if (val.includes(etisalat[i]) || val.includes(etisalat[i].slice(1, 5))) {
         imageEl.src = logos[1];
         imageEl.style.opacity = "1";
-        //  setError(phoneEl, 'only MTN lines are required');
+        mtnLogo = false;
       }
     }
   }
@@ -306,8 +307,8 @@ function startApp() {
     for (let i = 0; i < glo.length; i++) {
       if (val.includes(glo[i]) || val.includes(glo[i].slice(1, 5))) {
         imageEl.src = logos[2];
+        mtnLogo = false;
         imageEl.style.opacity = "1";
-        //  setError(phoneEl, 'only MTN lines are required');
       }
     }
   }
@@ -316,8 +317,8 @@ function startApp() {
     for (let i = 0; i < airtel.length; i++) {
       if (val.includes(airtel[i]) || val.includes(airtel[i].slice(1, 5))) {
         imageEl.src = logos[0];
+        mtnLogo = false;
         imageEl.style.opacity = "1";
-        //  setError(phoneEl, 'only MTN lines are required');
       }
     }
   }
