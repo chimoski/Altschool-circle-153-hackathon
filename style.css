@@ -49,18 +49,6 @@ section {
   background-size: cover;
 }
 
-/* section::before {
-  content: "";
-  position: absolute;
-  width: 62.5rem;
-  height: 62.5rem;
-  border-radius: 50%;
-  background-color: hsl(var(--accent-color));
-  bottom: -78%;
-  left: -108%;
-  z-index: -1;
-} */
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -90,9 +78,6 @@ section {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  /* box-shadow:  5px 5px 5px #d9d9d9,
-             -5px -5px 5px #e7e7e7; */
-  /* box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .form {

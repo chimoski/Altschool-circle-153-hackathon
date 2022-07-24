@@ -11,7 +11,6 @@ function startApp() {
   const customOptions = document.querySelector(".custom-options");
   const fixedOption = document.querySelector(".fixed-option");
   const footerSpan = document.querySelector("footer span");
-  const button = document.querySelector(".btn-submit");
   const nameRegex = /^[a-zA-Z]+$/g;
   const mtnLines = [
     "07025",
@@ -42,6 +41,7 @@ function startApp() {
   ];
   let options = document.querySelectorAll(".option");
   let mtnLogo = false;
+  let isCodeNigerian = true;
   // ////////////////////////////////////////////////////////////////////////////////
   // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
   // //////////////////////// PART 1-INPUT VALIDATIONS, ANIMATIONS AND CUSTOM SELECT ////////////////////////////////////////////////////////
@@ -51,7 +51,7 @@ function startApp() {
       .split("")
       .map(
         (letter, i) =>
-          `<span style="transition-delay:${i * 50}ms">${letter}</span>`
+          `<span style="transition-delay:${i * 40}ms">${letter}</span>`
       )
       .join("");
   });
@@ -78,8 +78,13 @@ function startApp() {
       option.addEventListener("click", (e) => {
         fixedOption.innerHTML = e.target.textContent;
         if (fixedOption.innerHTML != "+234")
+         { 
+          isCodeNigerian = false;
           setError(phoneEl, "Only +234 is allowed");
-        else setSuccess(phoneEl);
+          }
+        else{
+          isCodeNigerian = true;
+           setSuccess(phoneEl)};
         if (customOptions.classList.contains("show")) {
           customOptions.classList.remove("show");
           custom.classList.remove("rotate");
@@ -159,15 +164,13 @@ function startApp() {
     return valid;
   };
 
-  const validatePhonenumber = (mtn) => {
+  const validatePhonenumber = () => {
     const phone = phoneEl.value.trim();
     let valid = false;
       if (phone === "") {
         setError(phoneEl, "Phone number is required");
         valid = false;
       } else if (
-        // !mtn[i].includes(phone.slice(0, 4)) ||
-        // !mtn[i].slice(1,5).includes(phone.slice(0,4))
         mtnLogo === false
       ) {
         setError(phoneEl, "only MTN lines are required");
@@ -176,23 +179,15 @@ function startApp() {
         setSuccess(phoneEl);
         valid = true;
       }
-   
+
+      while(isCodeNigerian === false) {
+        setError(phoneEl, "Only +234 is allowed");
+       valid = false;
+      }
 
     return valid;
 
-    // for (let i = 0; i < mtnLines.length; i++) {
-    //   if (phone === "") {
-    //     setError(phoneEl, "Phone number is required");
-    //   }
-
-    //   // else if (phone !== mtnLines[i] && phone != "") {
-    //   //   setError(phoneEl, "only MTN lines are required");
-    //   // }
-
-    //   else {
-    //     setSuccess(phoneEl);
-    //   }
-    // }
+  
   };
 
   // validate all inputs onSubmit
@@ -203,7 +198,7 @@ function startApp() {
       validateFirstname() &&
       validateLastname() &&
       validateEmail() &&
-      validatePhonenumber(mtnLines)
+      validatePhonenumber()
     ) {
       valid = true;
     }
@@ -247,7 +242,7 @@ function startApp() {
   phoneEl.addEventListener(
     "keyup",
     debounceFn(() => {
-      validatePhonenumber(mtnLines);
+      validatePhonenumber();
     })
   );
 
@@ -264,7 +259,7 @@ function startApp() {
     e.preventDefault();
     console.log(valdateInputs());
     let validated = valdateInputs();
-    if (validated) {
+    if (validated && isCodeNigerian) {
       document.querySelector(".validated").textContent =
         "registration successful!";
       phoneEl.value = "";
@@ -272,10 +267,6 @@ function startApp() {
       emailEl.value = "";
       firstnameEl.value = "";
     }
-
-    // if (validated && fixedOption.innerHTML != "+234" && mtn == true) {
-    //   button.innerHTML = "sbmitted !!!";
-    // }
   });
 
   // Footer Date
