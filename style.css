@@ -40,6 +40,37 @@ svg {
   max-width: 100%;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-right: 10%;
+  padding-left: 10%;
+  position: relative;
+}
+
+#links {
+  display: flex;
+  gap: 1.5em;
+  justify-content: space-between;
+}
+
+#links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 1em 1.5em;
+  border-radius: 30px;
+  background-color:  hsl(92, 52%, 36%);
+  transition: .4s;
+}
+
+#links a:hover{
+  transform: scale(1.1);
+  background-color:  hsl(92, 52%, 36%, 0.8);
+}
+
 section {
   min-height: 100vh;
   position: relative;
@@ -50,6 +81,7 @@ section {
 }
 
 .wrapper {
+  /* padding-top: 50px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +89,7 @@ section {
   margin: 0 auto;
 }
 
-.wrapper > div h1 {
+.wrapper>div h1 {
   color: var(--primary-color);
   font-family: "Pacifico", cursive;
   font-size: clamp(2rem, 8vw, 4rem);
@@ -94,45 +126,46 @@ section {
   margin-bottom: 2.1875rem;
 }
 
-.form-control.error > input {
+.form-control.error>input {
   border-bottom-color: var(--error-color);
 }
 
-.form-control.error > label span,
-.form-control.error > small {
+.form-control.error>label span,
+.form-control.error>small {
   color: var(--error-color);
 }
-.form-control.success > input {
+
+.form-control.success>input {
   border-bottom-color: hsl(var(--accent-color));
 }
 
-.form-control.success > label,
-.form-control.success > small {
+.form-control.success>label,
+.form-control.success>small {
   color: hsl(var(--accent-color));
 }
 
-.form-control > label {
+.form-control>label {
   color: var(--primary-color);
   font-size: var(--fontSize-md);
   position: absolute;
   top: -0.125rem;
 }
 
-.form-control > label span {
+.form-control>label span {
   color: var(--primary-color);
   display: inline-block;
   font-size: var(--fontSize-md);
   transition: transform 400ms cubic-bezier(0.65, 0.3, 0.4, 1.5);
 }
 
-.form__input:focus + label span,
-.form__input:not(:placeholder-shown).form__input:not(:focus) + label span {
+.form__input:focus+label span,
+.form__input:not(:placeholder-shown).form__input:not(:focus)+label span {
   color: hsl(var(--accent-color));
   font-size: var(--fontSize-sm);
   transform: translateY(-1.25rem);
 }
 
-.form-control > input {
+.form-control>input {
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid var(--primary-color);
@@ -155,8 +188,8 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.form-control > input:focus,
-.form-control > input:valid {
+.form-control>input:focus,
+.form-control>input:valid {
   outline: 0;
   border-bottom-color: hsl(var(--accent-color));
 }
@@ -176,7 +209,7 @@ input[type="number"] {
   top: -0.75rem;
 }
 
-.form-control-number > .logo {
+.form-control-number>.logo {
   width: 33px;
   height: 33px;
   position: absolute;
@@ -186,10 +219,8 @@ input[type="number"] {
   transition: opacity 400ms ease-in;
 }
 
-.form__input-number:focus + label span,
-.form__input-number:not(:placeholder-shown).form__input-number:not(:focus)
-  + label
-  span {
+.form__input-number:focus+label span,
+.form__input-number:not(:placeholder-shown).form__input-number:not(:focus)+label span {
   transform: translateY(-0.5rem);
 }
 
@@ -270,6 +301,7 @@ input[type="number"] {
   width: 100%;
   max-width: 30rem;
   text-align: center;
+  transition: all .4s ease;
 }
 
 .btn-submit:hover {
@@ -316,6 +348,7 @@ input[type="number"] {
   padding: 0.5rem 1rem 0.2rem;
   cursor: pointer;
 }
+
 .auto-field:hover {
   background: hsla(var(--accent-color), 0.8);
   color: #fff;
@@ -325,6 +358,7 @@ input[type="number"] {
   background-color: hsla(var(--accent-color), 0.8) !important;
   color: #ffffff;
 }
+
 /* ////////////////////////////////////////////////////////////////////// */
 
 footer {
@@ -339,8 +373,18 @@ footer a {
   color: #fff;
   transition: all 400ms ease-in;
 }
+.link-error-message{
+  position: absolute;
+  color:  var(--error-color);
+  width: 20%;
+  text-align: center;
+  left: 60rem;
+  top: 6rem;
+  font-size: 1.5rem;
+}
 
 @media (min-width: 55rem) {
+
   section {
     background: #fff;
   }
@@ -354,11 +398,9 @@ footer a {
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
-    background-image: linear-gradient(
-      -45deg,
-      hsla(var(--accent-color), 0.8) 0%,
-      hsl(var(--accent-color)) 100%
-    );
+    background-image: linear-gradient(-45deg,
+        hsla(var(--accent-color), 0.8) 0%,
+        hsl(var(--accent-color)) 100%);
   }
 
   .wrapper {
@@ -367,7 +409,7 @@ footer a {
     gap: 0 2rem;
   }
 
-  .wrapper > div {
+  .wrapper>div {
     flex-basis: 50%;
   }
 
@@ -388,11 +430,11 @@ footer a {
     z-index: 1;
   }
 
-  .panel-text > h2 {
+  .panel-text>h2 {
     font-size: clamp(2.5rem, 8vw, 3.2rem);
   }
 
-  .panel-text > p {
+  .panel-text>p {
     font-size: 1.2rem;
   }
 
@@ -407,6 +449,7 @@ footer a {
 }
 
 @media (max-width: 25rem) {
+
   .panel {
     display: none;
   }
