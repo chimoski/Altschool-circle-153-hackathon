@@ -7,6 +7,7 @@ function startApp() {
   const phoneEl = document.getElementById("phone");
   const imageEl = document.querySelector(".number-logo");
   const form = document.querySelector(".form");
+  const links = document.querySelectorAll(".link")
   const custom = document.querySelector(".custom-select");
   const customOptions = document.querySelector(".custom-options");
   const fixedOption = document.querySelector(".fixed-option");
@@ -266,8 +267,32 @@ function startApp() {
       lastnameEl.value = "";
       emailEl.value = "";
       firstnameEl.value = "";
+
+      setTimeout( () =>{
+        window.location.href ="live.html";
+      }, 2000)
+
     }
   });
+
+
+
+  // disable links
+  document.querySelector(".link1").addEventListener("click", function(e){
+    if(e.target.name === "next"){
+      e.preventDefault();
+      document.querySelector(".link-message").textContent = "Register first"
+    }
+  })
+
+  document.querySelector(".link2").addEventListener("click", function(e){
+    if(e.target.name === "next"){
+      e.preventDefault();
+      document.querySelector(".link-message").textContent = "Register first"
+    }
+  })
+
+  
 
   // Footer Date
   footerSpan.textContent = new Date().getFullYear();
