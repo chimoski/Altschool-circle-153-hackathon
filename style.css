@@ -47,16 +47,12 @@ nav {
   padding-top: 25px;
   padding-right: 10%;
   padding-left: 10%;
-  /* position: absolute; */
-}
-
-#altLogo{
-  flex-basis: 70%;
+  position: relative;
 }
 
 #links {
-  flex-basis: 30%;
   display: flex;
+  gap: 1.5em;
   justify-content: space-between;
 }
 
