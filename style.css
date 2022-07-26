@@ -373,15 +373,49 @@ footer a {
   color: #fff;
   transition: all 400ms ease-in;
 }
-.link-error-message{
-  position: absolute;
-  color:  var(--error-color);
-  width: 20%;
-  text-align: center;
-  left: 60rem;
-  top: 6rem;
-  font-size: 1.5rem;
+.transparent-box{
+  display: none;
+  position: fixed;
+  background-color: transparent;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
 }
+ .nav-error-message{
+  position: absolute;
+  color: white;
+  top: 10rem;
+  width: 20rem;
+  height: 30vh;
+  border-radius: 15px;
+  padding: 0 2rem;
+  left: 55rem;
+  background-color: grey;
+}
+.link-error-message{
+  margin-top: 3rem;
+}
+.link-error-message .link-message{
+  color: hsl(0, 100%, 41%);
+  font-size: 1.2rem;
+}
+.btn-container{
+  margin-top: 4rem;
+  text-align: right;
+}
+.btn-container button{
+  background-color:  green;
+  padding: 0.7rem;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+.btn-container button:hover{
+  padding: 1.5rem;
+  background-color: darkgreen;
+}
+ 
 
 @media (min-width: 55rem) {
 
