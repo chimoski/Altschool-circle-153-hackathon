@@ -281,15 +281,19 @@ function startApp() {
   document.querySelector(".link1").addEventListener("click", function(e){
     if(e.target.name === "next"){
       e.preventDefault();
-      document.querySelector(".link-message").textContent = "Register first"
+      document.querySelector(".transparent-box").style.display = "block"
     }
   })
 
   document.querySelector(".link2").addEventListener("click", function(e){
     if(e.target.name === "next"){
       e.preventDefault();
-      document.querySelector(".link-message").textContent = "Register first"
+      document.querySelector(".transparent-box").style.display = "block"
     }
+  })
+
+  document.querySelector("#okay-btn").addEventListener("click", function(){
+    document.querySelector(".transparent-box").style.display="none"
   })
 
   
