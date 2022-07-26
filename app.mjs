@@ -260,6 +260,7 @@ function startApp() {
       lastnameEl.value = "";
       emailEl.value = "";
       firstnameEl.value = "";
+      imageEl.style.opacity = 0;
     }
   });
 
