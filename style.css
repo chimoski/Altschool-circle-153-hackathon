@@ -40,6 +40,7 @@ svg {
   max-width: 100%;
 }
 
+
 nav {
   display: flex;
   align-items: center;
@@ -50,26 +51,67 @@ nav {
   position: relative;
 }
 
-#links {
+
+.dropdown ul{
+  display: none;
+}
+
+.dropdown ul li {
+  list-style: none;
+  width: 130px;
+  height: 50px;
+  padding: 1em 1.5em;
+  margin-bottom: 5px;
+  border: 1px solid #fff;
+  border-radius: 0.4375rem;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: hsl(92, 52%, 36%);
+  transition: .4s;
+}
+
+.dropdown ul ul {
+  margin-top: 20px;
+  display: none;
+  position: absolute;
+  right: 0px;
+}
+
+.dropdown ul li:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: hsl(92, 52%, 36%, 0.8);
+}
+
+.dropdown ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.links {
   display: flex;
   gap: 1.5em;
   justify-content: space-between;
 }
 
-#links a {
+.links a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
   padding: 1em 1.5em;
   border-radius: 30px;
-  background-color:  hsl(92, 52%, 36%);
+  background-color: hsl(92, 52%, 36%);
   transition: .4s;
 }
 
-#links a:hover{
+.links a:hover {
   transform: scale(1.1);
-  background-color:  hsl(92, 52%, 36%, 0.8);
+  background-color: hsl(92, 52%, 36%, 0.8);
 }
+
+/* ////////////////////////////////////////// */
 
 section {
   min-height: 100vh;
@@ -439,11 +481,43 @@ footer a {
   }
 }
 
-@media (max-width: 25rem) {
+@media (max-width: 31rem) {
+
+  .links {
+    display: none;
+  }
+
+  .dropdown ul {
+    display: block;
+  }
+
+  .dropdown ul li:hover>ul{
+    display: block;
+  }
+
+  .dropdown ul li:hover>{
+    font-size: small;
+  }
+
+  nav {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  #links {
+    gap: 0.6em;
+  }
+
+  #links a {
+    font-size: 14px;
+    padding: 0.6em 1.1em;
+
+  }
 
   .panel {
     display: none;
   }
+
   section {
     background-image: url("./assets/rose-petals.svg");
     background-attachment: fixed;
