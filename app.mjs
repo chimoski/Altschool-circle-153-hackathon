@@ -252,7 +252,6 @@ function startApp() {
   // validate on submit
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(valdateInputs());
     let validated = valdateInputs();
     if (validated && isCodeNigerian) {
       document.querySelector(".validated").textContent =
