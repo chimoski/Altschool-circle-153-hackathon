@@ -1,50 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="redact.css">
-</head>
-<body>
+    <link rel="stylesheet" href="redact.css" />
+  </head>
+  <body>
     <div class="wrapper">
-        <h1>Redactr</h1>
+      <h1>Redactr</h1>
 
-        <form action="">
-            <div id="section-one">
-               <textarea name="" id="" cols="30" rows="10" class="text"
-               placeholder="Enter your text here"></textarea>
-               <button class="next" id="text-next">Next</button>
-            </div>
+      <form action="">
+        <div class="spinner-cont">
+          <div class="spinner spinner-red"></div>
+          <div class="spinner spinner-green"></div>
+          <div class="spinner spinner-blue"></div>
+        </div>
+        <div class="section" id="section-one">
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            class="text"
+            placeholder="Enter your text here"
+          ></textarea>
+          <small
+            style="color: red; margin-top: 1rem; text-align: center"
+          ></small>
+          <button class="next" id="text-next">Next</button>
+        </div>
 
-           <div id="section-two">
-           <input type="text" class="tobeScrambled" 
-           placeholder="enter the word(s) you want to scramble from the sentence above">
-          <div style="display: flex; justify-content:space-between">
+        <div class="section" id="section-two">
+          <input
+            type="text"
+            class="tobeScrambled"
+            placeholder="enter the word(s) you want to scramble from the sentence above"
+          />
+          <small
+            style="color: red; margin-top: 1rem; text-align: center"
+          ></small>
+          <div style="display: flex; justify-content: space-between">
             <button class="next prev">Prev</button>
             <button class="next scramble-next">Next</button>
           </div>
         </div>
-        <div id="section-three">
-            <label class="replacement-label">Enter the letter you want to replce the words with</label>
-            <input type="text" class="replacement" 
-            placeholder="eg: @,#,$,%,&,*,a-z,1-10">
-           <div style="display: flex; justify-content:space-between">
-             <button class="next scramble-prev">Prev</button>
-             <button class="next redact">Redact Now</button>
-           </div>
-         </div>
-      <div id="section-four">
-        <textarea cols="30" rows="10" id="scrambled"disabled >
-    </textarea>
-    <p class="stats" id="noOfWordsScanned"></p>
-    <p class="stats" id="noOfWordsMatched"></p>
-    <p class="stats" id="noOfCharScrambled"></p>
-    <button class="restart">Scramble again</button>
-      </div>
-    </form>
+        <div class="section" id="section-three">
+          <label class="replacement-label"
+            >Enter the letter you want to replce the words with</label
+          >
+          <input
+            type="text"
+            class="replacement"
+            placeholder="eg: @,#,$,%,&,*,a-z,1-10"
+          />
+          <small
+            style="color: red; margin-top: 1rem; text-align: center"
+          ></small>
+          <div style="display: flex; justify-content: space-between">
+            <button class="next scramble-prev">Prev</button>
+            <button class="next redact">Redact Now</button>
+          </div>
+        </div>
+        <div class="section" id="section-four">
+          <textarea cols="30" rows="10" id="scrambled" disabled> </textarea>
+          <p class="stats" id="noOfWordsScanned"></p>
+          <p class="stats" id="noOfWordsMatched"></p>
+          <p class="stats" id="noOfCharScrambled"></p>
+          <p class="time-taken"></p>
+          <button class="restart">Scramble again</button>
+        </div>
+      </form>
     </div>
     <script src="redact.mjs"></script>
-</body>
+  </body>
 </html>

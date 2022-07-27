@@ -1,62 +1,113 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   outline: none;
   border: none;
 }
-button{
+button {
   cursor: pointer;
   border-radius: 5px;
-  padding: .5rem ;
-  margin: .5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
-.wrapper{
-  background: rgb(248, 247, 247);
- max-width: 500px;
+.wrapper {
+  background: rgba(248, 247, 247, 0.75);
+  max-width: 500px;
   height: auto;
   margin: 2rem auto;
   padding: 2rem;
 }
-.wrapper h1{
+.wrapper h1 {
   text-align: center;
 }
 
-.wrapper div{
+.wrapper .section {
   width: 100%;
   margin: 0 auto;
- 
 }
-.wrapper div textarea{
+.wrapper div textarea {
   width: 100%;
   resize: none;
- margin: 1rem auto;
- padding: .5rem;
+  margin: 1rem auto;
+  padding: 0.5rem;
 }
-.tobeScrambled,.replacement{
+.tobeScrambled,
+.replacement {
   width: 100%;
-  padding: .5rem ;
+  padding: 0.5rem;
 }
-.tobeScrambled::placeholder{
+.tobeScrambled::placeholder {
   font-size: 11px;
 }
 
-.next{
+.next {
   margin-bottom: 1rem;
 }
 
-#section-two{
+#section-two {
   display: none;
 }
-#section-three{
+#section-three {
   display: none;
 }
-#section-four{
+#section-four {
   display: none;
 }
-.replacement-label{
+.replacement-label {
   font-size: 14px;
   color: rgb(133, 127, 127);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Spinner */
+.spinner-cont {
+  margin-inline: auto;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  width: 6.25rem;
+  height: 6.25rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.spinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 7px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+}
+
+.spinner-red {
+  border-top-color: red;
+  --duration: 1.5s;
+  --timing: ease-in-out;
+}
+.spinner-green {
+  border-right-color: green;
+  --duration: 2.2s;
+  --timing: ease-out;
+}
+
+.spinner-blue {
+  border-left-color: blue;
+  --duration: 3s;
+  --timing: ease-in;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
