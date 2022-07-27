@@ -77,14 +77,13 @@ function startApp() {
     options.forEach((option) => {
       option.addEventListener("click", (e) => {
         fixedOption.innerHTML = e.target.textContent;
-        if (fixedOption.innerHTML != "+234")
-         { 
+        if (fixedOption.innerHTML != "+234") {
           isCodeNigerian = false;
           setError(phoneEl, "Only +234 is allowed");
-          }
-        else{
+        } else {
           isCodeNigerian = true;
-           setSuccess(phoneEl)};
+          setSuccess(phoneEl);
+        }
         if (customOptions.classList.contains("show")) {
           customOptions.classList.remove("show");
           custom.classList.remove("rotate");
@@ -167,27 +166,23 @@ function startApp() {
   const validatePhonenumber = () => {
     const phone = phoneEl.value.trim();
     let valid = false;
-      if (phone === "") {
-        setError(phoneEl, "Phone number is required");
-        valid = false;
-      } else if (
-        mtnLogo === false
-      ) {
-        setError(phoneEl, "only MTN lines are required");
-        valid = false;
-      } else {
-        setSuccess(phoneEl);
-        valid = true;
-      }
+    if (phone === "") {
+      setError(phoneEl, "Phone number is required");
+      valid = false;
+    } else if (mtnLogo === false) {
+      setError(phoneEl, "only MTN lines are required");
+      valid = false;
+    } else {
+      setSuccess(phoneEl);
+      valid = true;
+    }
 
-      while(isCodeNigerian === false) {
-        setError(phoneEl, "Only +234 is allowed");
-       valid = false;
-      }
+    while (isCodeNigerian === false) {
+      setError(phoneEl, "Only +234 is allowed");
+      valid = false;
+    }
 
     return valid;
-
-  
   };
 
   // validate all inputs onSubmit
@@ -257,7 +252,6 @@ function startApp() {
   // validate on submit
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(valdateInputs());
     let validated = valdateInputs();
     if (validated && isCodeNigerian) {
       document.querySelector(".validated").textContent =
@@ -266,6 +260,7 @@ function startApp() {
       lastnameEl.value = "";
       emailEl.value = "";
       firstnameEl.value = "";
+      imageEl.style.opacity = 0;
     }
   });
 
