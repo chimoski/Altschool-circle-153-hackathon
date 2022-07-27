@@ -1,0 +1,62 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+button{
+  cursor: pointer;
+  border-radius: 5px;
+  padding: .5rem ;
+  margin: .5rem;
+}
+
+.wrapper{
+  background: rgb(248, 247, 247);
+ max-width: 500px;
+  height: auto;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+.wrapper h1{
+  text-align: center;
+}
+
+.wrapper div{
+  width: 100%;
+  margin: 0 auto;
+ 
+}
+.wrapper div textarea{
+  width: 100%;
+  resize: none;
+ margin: 1rem auto;
+ padding: .5rem;
+}
+.tobeScrambled,.replacement{
+  width: 100%;
+  padding: .5rem ;
+}
+.tobeScrambled::placeholder{
+  font-size: 11px;
+}
+
+.next{
+  margin-bottom: 1rem;
+}
+
+#section-two{
+  display: none;
+}
+#section-three{
+  display: none;
+}
+#section-four{
+  display: none;
+}
+.replacement-label{
+  font-size: 14px;
+  color: rgb(133, 127, 127);
+  margin-bottom: .5rem;
+}

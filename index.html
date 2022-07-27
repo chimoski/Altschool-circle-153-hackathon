@@ -1,147 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Prompt:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Circle-153-Phonie</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="redact.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Redactr</h1>
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="transparent-box">
-      <div class="nav-error-message">
+        <form action="">
+            <div id="section-one">
+               <textarea name="" id="" cols="30" rows="10" class="text"
+               placeholder="Enter your text here"></textarea>
+               <button class="next" id="text-next">Next</button>
+            </div>
 
-        <div class="link-error-message">
-          <small class="link-message">Please Register First!</small>
+           <div id="section-two">
+           <input type="text" class="tobeScrambled" 
+           placeholder="enter the word(s) you want to scramble from the sentence above">
+          <div style="display: flex; justify-content:space-between">
+            <button class="next prev">Prev</button>
+            <button class="next scramble-next">Next</button>
+          </div>
         </div>
-        <div class="btn-container">
-          <button id="okay-btn">Okay</button>
-        </div>
-
+        <div id="section-three">
+            <label class="replacement-label">Enter the letter you want to replce the words with</label>
+            <input type="text" class="replacement" 
+            placeholder="eg: @,#,$,%,&,*,a-z,1-10">
+           <div style="display: flex; justify-content:space-between">
+             <button class="next scramble-prev">Prev</button>
+             <button class="next redact">Redact Now</button>
+           </div>
+         </div>
+      <div id="section-four">
+        <textarea cols="30" rows="10" id="scrambled"disabled >
+    </textarea>
+    <p class="stats" id="noOfWordsScanned"></p>
+    <p class="stats" id="noOfWordsMatched"></p>
+    <p class="stats" id="noOfCharScrambled"></p>
+    <button class="restart">Scramble again</button>
       </div>
+    </form>
     </div>
-    <section>
-      <nav>
-        <div id="altLogo"><a href="AltSchoolLogo"><img src="/assets/Logo.svg" alt=""></a></div>
-  
-        <div class="links">
-          <a class="link1" href="https://quootely.netlify.app/" target="_blank" name ="next">Redactr</a>
-          <a class="link2" href="https://quootely.netlify.app/" target="_blank" name ="next">SchoolStat</a>
-        </div>
-      </nav>
-      <div class="wrapper">
-        <div class="left">
-          <h1>Phonie</h1>
-          <div class="form-container">
-            <form class="form" novalidate autocomplete="off">
-              <div class="namefield">
-                <div class="form-control">
-                  <input
-                    type="text"
-                    name="firstname"
-                    id="firstname"
-                    class="form__input"
-                    placeholder=" "
-                    required
-                  />
-                  <label for="firstname">First name</label>
-                  <small></small>
-                </div>
-                <div class="form-control">
-                  <input
-                    type="text"
-                    name="lastname"
-                    id="lastname"
-                    class="form__input"
-                    placeholder=" "
-                    required
-                  />
-                  <label for="lastname">Last name</label>
-                  <small></small>
-                </div>
-              </div>
-              <div class="form-control">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="form__input"
-                  placeholder=" "
-                  required
-                />
-                <label for="email">Email</label>
-                <small></small>
-              </div>
-              <div class="form-control form-control-number">
-                <input
-                  type="text"
-                  name="phone"
-                  id="phone"
-                  class="form__input form__input-number"
-                  placeholder=" "
-                  required
-                />
-                <label for="phone">Phone-number</label>
-                <img src="" alt="logo" class="logo number-logo" />
-                <small></small>
-                <div class="custom-wrapper">
-                  <div class="custom-select">
-                    <div class="fixed-option">+234</div>
-                    <button class="custom-arrow">
-                      <i class="fa-solid fa-caret-down"></i>
-                    </button>
-                  </div>
-                  <div class="custom-options">
-                    <div class="option">+234</div>
-                    <div class="option">+233</div>
-                    <div class="option">+255</div>
-                    <div class="option">+21</div>
-                    <div class="option">+206</div>
-                    <div class="option">+208</div>
-                  </div>
-                </div>
-              </div>
-
-              <button type="submit" class="btn-submit">Submit</button>
-              <p class="validated"></p>
-            </form>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-text">
-            <h2>Phonie By Circle 153</h2>
-            <p>Circle 153 AltSchoolers to the moon!!</p>
-          </div>
-          <div class="panel-image">
-            <img src="./assets/altSchoolers.svg" alt="students" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
-    <script src="index.mjs" type="module"></script>
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
-    <footer>
-      <a
-        href="https://github.com/chimoski/Altschool-circle-153-phonie"
-        target="_blank"
-        >&copy copyright year Circle-153 <span class="date"></span>
-      </a>
-    </footer>
-  </body>
+    <script src="redact.mjs"></script>
+</body>
 </html>
