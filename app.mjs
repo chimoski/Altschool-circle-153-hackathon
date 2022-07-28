@@ -7,6 +7,7 @@ function startApp() {
   const phoneEl = document.getElementById("phone");
   const imageEl = document.querySelector(".number-logo");
   const form = document.querySelector(".form");
+  const links = document.querySelectorAll(".link");
   const custom = document.querySelector(".custom-select");
   const customOptions = document.querySelector(".custom-options");
   const fixedOption = document.querySelector(".fixed-option");
@@ -260,8 +261,30 @@ function startApp() {
       lastnameEl.value = "";
       emailEl.value = "";
       firstnameEl.value = "";
-      imageEl.style.opacity = 0;
+
+      setTimeout(() => {
+        window.location.href = "live.html";
+      }, 2000);
     }
+  });
+
+  // disable links
+  document.querySelector(".link1").addEventListener("click", function (e) {
+    if (e.target.name === "next") {
+      e.preventDefault();
+      document.querySelector(".overlay").style.display = "flex";
+    }
+  });
+
+  document.querySelector(".link2").addEventListener("click", function (e) {
+    if (e.target.name === "next") {
+      e.preventDefault();
+      document.querySelector(".overlay").style.display = "flex";
+    }
+  });
+
+  document.querySelector("#okay-btn").addEventListener("click", function () {
+    document.querySelector(".overlay").style.display = "none";
   });
 
   // Footer Date

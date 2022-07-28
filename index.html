@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Prompt:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Lora:ital,wght@1,400;1,700&family=Prompt:wght@300;400&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,7 +22,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="transparent-box overlay">
+      <div class="nav-error-message">
+        <div class="link-error-message">
+          <small class="link-message">Please Register First!</small>
+        </div>
+        <div class="btn-container">
+          <button id="okay-btn">Okay</button>
+        </div>
+      </div>
+    </div>
     <section>
+      <nav>
+        <a href="/" class="altLogo">
+          Alt<span></span> <br />
+          school
+        </a>
+
+        <div class="links">
+          <a
+            class="link1"
+            href="https://quootely.netlify.app/"
+            target="_blank"
+            name="next"
+            >Redactr</a
+          >
+          <a
+            class="link2"
+            href="https://quootely.netlify.app/"
+            target="_blank"
+            name="next"
+            >SchoolStat</a
+          >
+        </div>
+      </nav>
       <div class="wrapper">
         <div class="left">
           <h1>Phonie</h1>
@@ -104,7 +137,21 @@
         <div class="panel">
           <div class="panel-text">
             <h2>Phonie By Circle 153</h2>
-            <p>Circle 153 AltSchoolers to the moon!!</p>
+            <div class="panel-animate">
+              <p>Circle-153 to the</p>
+              <ul class="content__container__list panel-list">
+                <li class="content__container__list__item panel-item">
+                  world!
+                </li>
+                <li class="content__container__list__item panel-item">moon!</li>
+                <li class="content__container__list__item panel-item">
+                  universe!
+                </li>
+                <li class="content__container__list__item panel-item">
+                  globe!
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="panel-image">
             <img src="./assets/altSchoolers.svg" alt="students" />
