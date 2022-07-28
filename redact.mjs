@@ -66,7 +66,7 @@ redact.addEventListener("click", function (e) {
     sectionFour.style.display = "block";
     sectionThree.querySelector("small").textContent = "";
     spinner.style.display = "flex";
-    // setTimeout(() => scramble(), 1000);
+    // setTimeout(scramble, 1000);
     setTimeout(scramble__words, 1500);
   } else {
     sectionThree.querySelector("small").textContent =
@@ -112,9 +112,15 @@ function scramble() {
 
   if (wordsToScrambleArray.length > 0) {
     wordsToScrambleArray.map((word) => {
-      textArray.map((text, i) => {
+      textArray.map((text, index) => {
         if (text.includes(word)) {
           noOfMatches++;
+          noOfWordMatches.innerHTML = "NO OF WORDS MATCHED: " + noOfMatches;
+          // console.log(noOfMatches);
+          charScrambled += word;
+          noOfCharScrambled = charScrambled.length;
+          noScrambled.innerHTML =
+            "NO OF CHARACTERS SCRAMBLED: " + noOfCharScrambled;
 
           if (index !== -1) {
             if (replacement.value.length > 0) {
@@ -126,15 +132,8 @@ function scramble() {
             } else {
               textArray[index] = "#".repeat(text.length);
             }
+
           }
-
-          noOfWordMatches.innerHTML = "NO OF WORDS MATCHED: " + noOfMatches;
-          // console.log(noOfMatches);
-          charScrambled += word;
-          noOfCharScrambled = charScrambled.length;
-          noScrambled.innerHTML =
-            "NO OF CHARACTERS SCRAMBLED: " + noOfCharScrambled;
-
           scrambledWords = textArray.join(" ");
           //   console.log(scrambledWords);
           scrambled.value = scrambledWords;
@@ -149,9 +148,14 @@ function scramble() {
   console.log(timeTaken);
 }
 
+
+
+
+
 function scramble__words() {
+    let startTime = new Date().getTime();
+    let timeTaken;
   spinner.style.display = "none";
-  let startTime = new Date().getTime();
   let totalChar = 0;
 
   // array of original text minus space
@@ -194,19 +198,14 @@ function scramble__words() {
   } else {
     scrambled.value = "No Match Found!";
   }
-  let endTime = new Date().getTime();
-
-  let timeTaken = endTime - startTime;
-  document.querySelector(
-    ".time-taken"
-  ).textContent = `Time Taken: ${timeTaken}sec`;
-  console.log(timeTaken);
-
   noScanned.textContent = `No of Scanned Words: ${originalArr.length}`;
-
   noOfWordMatches.textContent = `No Of Matches :${wordsToRedact.length}`;
-
   let stringed = wordsToRedact.join("");
   totalChar = stringed.length;
   noScrambled.textContent = `No Of Scrambled Character: ${totalChar}`;
+  let endTime = new Date().getTime();
+    timeTaken = endTime - startTime;
+    document.querySelector(
+        ".time-taken"
+      ).textContent = `Time Taken: ${timeTaken}sec(s)`;
 }
