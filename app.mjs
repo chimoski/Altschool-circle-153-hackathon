@@ -7,7 +7,7 @@ function startApp() {
   const phoneEl = document.getElementById("phone");
   const imageEl = document.querySelector(".number-logo");
   const form = document.querySelector(".form");
-  const links = document.querySelectorAll(".link")
+  const links = document.querySelectorAll(".link");
   const custom = document.querySelector(".custom-select");
   const customOptions = document.querySelector(".custom-options");
   const fixedOption = document.querySelector(".fixed-option");
@@ -78,14 +78,13 @@ function startApp() {
     options.forEach((option) => {
       option.addEventListener("click", (e) => {
         fixedOption.innerHTML = e.target.textContent;
-        if (fixedOption.innerHTML != "+234")
-         { 
+        if (fixedOption.innerHTML != "+234") {
           isCodeNigerian = false;
           setError(phoneEl, "Only +234 is allowed");
-          }
-        else{
+        } else {
           isCodeNigerian = true;
-           setSuccess(phoneEl)};
+          setSuccess(phoneEl);
+        }
         if (customOptions.classList.contains("show")) {
           customOptions.classList.remove("show");
           custom.classList.remove("rotate");
@@ -168,27 +167,23 @@ function startApp() {
   const validatePhonenumber = () => {
     const phone = phoneEl.value.trim();
     let valid = false;
-      if (phone === "") {
-        setError(phoneEl, "Phone number is required");
-        valid = false;
-      } else if (
-        mtnLogo === false
-      ) {
-        setError(phoneEl, "only MTN lines are required");
-        valid = false;
-      } else {
-        setSuccess(phoneEl);
-        valid = true;
-      }
+    if (phone === "") {
+      setError(phoneEl, "Phone number is required");
+      valid = false;
+    } else if (mtnLogo === false) {
+      setError(phoneEl, "only MTN lines are required");
+      valid = false;
+    } else {
+      setSuccess(phoneEl);
+      valid = true;
+    }
 
-      while(isCodeNigerian === false) {
-        setError(phoneEl, "Only +234 is allowed");
-       valid = false;
-      }
+    while (isCodeNigerian === false) {
+      setError(phoneEl, "Only +234 is allowed");
+      valid = false;
+    }
 
     return valid;
-
-  
   };
 
   // validate all inputs onSubmit
@@ -268,35 +263,30 @@ function startApp() {
       emailEl.value = "";
       firstnameEl.value = "";
 
-      setTimeout( () =>{
-        window.location.href ="live.html";
-      }, 2000)
-
+      setTimeout(() => {
+        window.location.href = "live.html";
+      }, 2000);
     }
   });
 
-
-
   // disable links
-  document.querySelector(".link1").addEventListener("click", function(e){
-    if(e.target.name === "next"){
+  document.querySelector(".link1").addEventListener("click", function (e) {
+    if (e.target.name === "next") {
       e.preventDefault();
-      document.querySelector(".transparent-box").style.display = "block"
+      document.querySelector(".overlay").style.display = "flex";
     }
-  })
+  });
 
-  document.querySelector(".link2").addEventListener("click", function(e){
-    if(e.target.name === "next"){
+  document.querySelector(".link2").addEventListener("click", function (e) {
+    if (e.target.name === "next") {
       e.preventDefault();
-      document.querySelector(".transparent-box").style.display = "block"
+      document.querySelector(".overlay").style.display = "flex";
     }
-  })
+  });
 
-  document.querySelector("#okay-btn").addEventListener("click", function(){
-    document.querySelector(".transparent-box").style.display="none"
-  })
-
-  
+  document.querySelector("#okay-btn").addEventListener("click", function () {
+    document.querySelector(".overlay").style.display = "none";
+  });
 
   // Footer Date
   footerSpan.textContent = new Date().getFullYear();
