@@ -10,6 +10,13 @@ const toScrambleErrorField = document.querySelector('.toScrambleError');
 const toReplaceErrorField = document.querySelector('.toReplaceError');
 const redactedContent = document.querySelector('#redacted-content');
 const redactContent = document.querySelector('#redact-content');
+const time = document.querySelector('#time-taken');
+const charsScrambled = document.querySelector('#chars-scrambled');
+const wordsScanned = document.querySelector('#words-scanned');
+const wordsMatched = document.querySelector('#words-matched');
+const backwards = document.querySelector('#back');
+const refresh = document.querySelector('#refresh');
+const copied = document.querySelector('.copied');
 let valid  = false;
 let loading = false
 
@@ -89,10 +96,11 @@ function validateInputs() {
 validateInputs();
 
 
+
+// function to sisplay loader
 function showLoader(){
-    setTimeout(() => {
-        redactBtn.innerHTML='  <i class="fa fa-circle-o-notch fa-spin"></i>';
-    }, 100);
+   
+  redactBtn.innerHTML='  <i class="fa fa-circle-o-notch fa-spin"></i>';
    setTimeout(() => {
     redactContent.style.display = 'none';
     redactedContent.style.display = 'block';
@@ -102,7 +110,6 @@ function showLoader(){
 
 // scramble onclick
 function scrambleText (){
-  
          redactBtn.addEventListener('click', (e)=>{
             e.preventDefault();
             if(
@@ -110,26 +117,18 @@ function scrambleText (){
                 validateToScramble() &&
                 validateToReplace()
             ){
-                
-          // validateToScramble();
-            // validateToRedact();
-            // validateToReplace();
            showLoader()            
           scramble__words();
             }
-          
     }) 
-    
-  
 }
-
-
 scrambleText();
+
+
  // function to scramble words
 function scramble__words() {
     let startTime = new Date().getTime();
     let timeTaken;
-//   spinner.style.display = "none";
   let totalChar = 0;
 
   // array of original text minus space
@@ -174,14 +173,59 @@ function scramble__words() {
   } else {
     redactedField.value = "No Match Found!";
   }
-//   noScanned.textContent = `No of Scanned Words: ${originalArr.length}`;
-//   noOfWordMatches.textContent = `No Of Matches :${wordsToRedact.length}`;
+  wordsScanned.textContent =  originalArr.length;
+  wordsMatched.textContent = wordsToRedact.length;
   let stringed = wordsToRedact.join("");
   totalChar = stringed.length;
-//   noScrambled.textContent = `No Of Scrambled Character: ${totalChar}`;
+  charsScrambled.textContent = totalChar;
   let endTime = new Date().getTime();
-    timeTaken = endTime - startTime;
-    // document.querySelector(
-    //     ".time-taken"
-    //   ).textContent = `Time Taken: ${timeTaken}sec(s)`;
+  timeTaken = endTime - startTime;
+  time.textContent = timeTaken + 1.2+'s';
 }
+
+
+// function  to go back to the redact page
+function goBack(){
+    backwards.addEventListener('click', (e)=>{
+        e.preventDefault();
+        redactedContent.style.display = 'none';
+        redactContent.style.display = 'block';
+        redactBtn.innerHTML='Redact';
+    })
+}
+goBack();
+
+
+// function to refresh the page
+function restart(){
+    refresh.addEventListener('click', (e)=>{
+        e.preventDefault();
+        redactedContent.style.display = 'none';
+        redactContent.style.display = 'block';
+        toRedact.value = '';
+        toScramble.value = '';
+        toReplace.value = '';
+        redactedField.value = '';
+        wordsScanned.textContent = '';
+        wordsMatched.textContent = '';
+        charsScrambled.textContent = '';
+        time.textContent = '';
+        window.location.reload();
+    })
+}
+restart();
+
+//function to copy to clipboard
+function copyText(){
+    copyBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        redactedField.select();
+        console.log('copied');
+        navigator.clipboard.writeText(redactedField.value);
+        copied.style.display = 'block'
+        setTimeout(()=>{
+            copied.style.display = 'none'
+        },1000)
+    })
+}
+copyText();

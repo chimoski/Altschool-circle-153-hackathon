@@ -12,7 +12,7 @@
     --h4-color: rgba(61, 161, 15, 0.925);
     --main-color: #fff;
     --text-color: #000;
-    --bg-color: rgb(229,228,226);
+    --bg-color: rgb(249, 249, 248);
     --big-font: 2.5rem;
     --h6-font: 0.7rem;
     --padding: 10px 20px;
@@ -30,6 +30,7 @@ body{
 
 
 .container{
+    position: relative;
     max-width: 600px;
     width: 90%;
     height: auto;
@@ -132,8 +133,85 @@ input::placeholder, textarea::placeholder{
     text-decoration: underline;
 }
 
+
+.stat{
+    width: 100%;
+    gap: 20%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.stat-img{
+    width: 40%;
+    height: auto;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(181, 181, 181, 0.15);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+.stat-img img {
+    background: rgba(89, 139, 44, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+.stat-img small{
+    color: #A4A4A4;
+    font-size: 12px;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem .5rem;
+}
+.buttons button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--h4-color);
+    color: var(--main-color);
+}
+.buttons button:hover {
+    background-color: var(--main-color);
+    color: var(--h4-color);
+}
+.buttons button:nth-child(1){
+    color: var(--h4-color);
+    background-color: var(--main-color);
+}
+.buttons button:nth-child(1):hover {
+    color: var(--main-color);
+    background-color: var(--h4-color);
+}
+.share{
+    text-align: right;
+    margin: 3rem;
+}
+
+.copied {
+    display: none;
+    position: absolute;
+    top: 18%;
+    left: 30%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    border-radius: 150px;
+    background: #ffffff;
+    z-index: 99;
+    box-shadow:  5px 5px 20px #d4d4d4,
+                 -5px -5px 20px #ffffff;
+}
+
+
 @media(max-width:450px){
     .container{
         padding: 70px 10px;
+    }
+
+    .stat-img small{
+        font-size: 10px;
     }
 }
