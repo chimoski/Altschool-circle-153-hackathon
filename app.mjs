@@ -263,8 +263,8 @@ function startApp() {
       firstnameEl.value = "";
 
       setTimeout(() => {
-        window.location.href = "live.html";
-      }, 2000);
+        window.location.href = "redact.html";
+      }, 1000);
     }
   });
 
