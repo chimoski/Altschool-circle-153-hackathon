@@ -1,141 +1,101 @@
 *{
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    --h4-color: rgba(61, 161, 15, 0.925);
+    --main-color: #fff;
+    --text-color: #000;
+    --bg-color: rgb(229,228,226);
+    --big-font: 2.5rem;
+    --h6-font: 0.7rem;
+    --padding: 10px 20px;
+    --p-font: 1.2rem;
+    --border-radius: 0.5rem;
+    --small-font: 1.2rem;
+    --border-radius-input: 0.3rem
 }
 
 body{
-    background-color: crimson;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 
-.loginbox{
-    width: 620px;
-    height: 520px;
-    background-color: #ffffff;
-    color: #000;
+.container{
+    min-width: 620px;
+    min-height: 900px;
+    background-color: var(--main-color);
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
-    box-shadow: 10px 10px 15px rgba(255, 0, 0 0.7) rgba(0, 255, 0 0.7) rgba(255, 255, 0 0.7) ;
 }
 
-.avatar{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: -10%;
-    left: calc(50% - 50px);
-}
-
-input::placeholder{
-    color: green;
-    transition: 1.1s ease-in-out;
-
-}
-
-input[type="tel"]{
-    padding: 10px;
-    padding-left: 60px;
-}
-
-input[type="tel"]::placeholder{
-    color: green;
-    padding-left: 10px;
-
-}
-
-input:focus::placeholder{
-    transform: translateY(-0.75rem);
-
-}
-
-.namelists{
-    display: flex;
-    gap: 3px;
-    margin-right: 5px;
-}
-
-.loginbox input[type="text"]{
-    width: 100%;
+h4{
+    font-size: var(--big-font);
+    text-align: center;
+    color: var(--h4-color);
     margin-bottom: 20px;
-    height: 40px;
-    border-radius: 5px;
+    padding-bottom: 30px;
+}
+
+h6{
+    color: var(--h4-color);
+    font-size: var(--h6-font);
+    margin: 10px 0;
+
+}
+
+textarea{
+    min-width: 100%;
+    min-height: 400px;
+    background-color: var(--bg-color);
+    font-size: var(--small-font);
+    color: var(--text-color);
+    border-radius: var(--border-radius-input);
+    border: none;
+    padding: var(--padding);
+}
+
+input[type="text"]{
+    padding: var(--padding);
+    min-width: 100%;
+    height: 60px;
+    background-color: var(--bg-color);
+    font-size: var(--small-font);
+    border-radius: var(--border-radius-input);
+    border: none;
+
+}
+
+#btn{
+    background-color: var(--h4-color);
+    border-radius: var(--border-radius);
+    color: var(--main-color);
+    min-width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    font-size: var(--small-font);
+    outline: none;
+    border: none;
+}
+
+.content{
+    display: none;
+}
+
+
+.hero{
+    display: flex;
+    justify-content: space-between;
     margin-top: 30px;
-    padding: 10px;
     
 }
-
-.loginbox input[type="email"], [type="tel"]{
-    width: 100%;
-    margin-bottom: 20px;
-    height: 40px;
-    border-radius: 5px;
-    margin-top: 30px;
-    padding: 10px;
-}
-
-.loginbox input[type="text"], input[type="email"], input[type="tel"]{
-    border: none;
-    border-bottom: 1px solid #000;
-    background: transparent;
-    outline: none;
-    font-size: 16px;
-    color: #000;
-}
-
-.loginbox h1{
-    color: green;
-    text-align: center;
-}
-
-label{
-    margin-top: 10px;
-}
-
-select{
-    position: absolute;
-    top: 345px;
-    left: 30px;
-    width: 4.0rem;
-    height: 30px;
-    margin-top: -5.0px;
-    display: block;
-    border: none;
-    background-color: green;
-    color: #fff;
-    line-height: 1.9px;
-    cursor: pointer;
-    border-radius: .25em;
-    transition: ease-in-out;
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family: serif;
-}
-
-
-.loginbox button{
-    border: none;
-    outline: none;
-    height: 60px;
-    background-color: green;
-    color: #fff;
-    font-size: 18px;
-    width: 100%;
-    border-radius: 7px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-
-form > img{
-    position: absolute;
-    top: 335px;
-    right: 30px;
-    display: block;
-}
-
-
