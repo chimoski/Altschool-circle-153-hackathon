@@ -68,6 +68,9 @@ h6{
     border: none;
     padding: var(--padding);
     resize: none;
+    font-family: inherit;
+    font-size: 14px;
+    color: rgb(65, 64, 64);
 }
 .textarea:focus{
     outline: 2px solid var(--h4-color);
@@ -81,16 +84,17 @@ input[type="text"]{
     font-size: var(--small-font);
     border-radius: var(--border-radius-input);
     border: none;
+    font-family: inherit;
+    font-size: 14px;
+    color: rgb(65, 64, 64);
 
 }
 input[type="text"]:focus{
     outline: 2px solid var(--h4-color);
 }
-.redacted{
 
-}
 
-#btn{
+.btn{
     background-color: var(--h4-color);
     border-radius: var(--border-radius);
     color: var(--main-color);
@@ -102,13 +106,17 @@ input[type="text"]:focus{
     border: none;
     cursor: pointer;
 }
-#btn:hover {
+.btn:hover {
    transform: scale(.99);
 }
 
-/* .content{
+input::placeholder, textarea::placeholder{
+    font-size: 14px;
+}
+
+#redacted-content{
     display: none;
-} */
+}
 
 
 .hero{

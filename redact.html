@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redact</title>
 
@@ -10,28 +11,31 @@
 </head>
 <body>
         <div class="wrapper">
-    <section id="message">
+     <section id="message">
+        
         <div class="container">
-                <h4>Redactr</h4>
-                <h6>Text to redact*</h6>
-                <textarea class="textarea" name="text" id=""rows="10"></textarea><br><br>
+            <h4>Redactr</h4>
+           <div id="redact-content">
+            <h6 class="toRedactError">Text to redact*</h6>
+            <textarea class="textarea" name="text" id="toRedact" rows="10"></textarea><br><br>
 
-                <h6>Words to scramble*</h6>
-                <input type="text" placeholder="List of words to scramble separated by a space"><br>
-                <br>
-                <h6>Replacement Characters</h6>
-                <input type="text" placeholder="Characters to replace redacted words with">
-                <br><br>
+            <h6 class="toScrambleError">Word(s) to scramble*</h6>
+            <input id="toScramble" type="text" placeholder="List of words to scramble separated by a space"><br>
+            <br>
+            <h6 class="toReplaceError">Replacement Character(s)</h6>
+            <input id="replacement-field" type="text" placeholder="eg: #, @, $, &, * ">
+            <br><br>
 
-                <button id="btn">Redact</button>
+            <button id="redact-btn" class="btn">Redact</button>
+           </div>
             
 
-            <div class="content">
+            <div id="redacted-content">
             <div class="hero">
                 <h6>Redacted Text</h6>
                 <h6 class="copy">copy</h6>
             </div>    
-                <textarea class="textarea redacted" disabled name="redract" id=""rows="10"></textarea>
+                <textarea class="textarea redacted" disabled name="redract" id="redacted"rows="10"></textarea>
             </div>
         </div>
     </section>
@@ -42,7 +46,7 @@
   
 
     <!-- // ============= EEND DO NOT EDIT ============== // -->
-    <script src="redact.js" type="module"></script>
+    <script src="redact.mjs" type="module"></script>
     <!-- // ============= EEND DO NOT EDIT ============== // -->
 </body>
 </html>
