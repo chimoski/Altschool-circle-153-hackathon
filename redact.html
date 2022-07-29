@@ -12,10 +12,9 @@
         <div class="wrapper">
     <section id="message">
         <div class="container">
-            <div class="main">
                 <h4>Redactr</h4>
                 <h6>Text to redact*</h6>
-                <textarea name="text" id="" cols="30" rows="10"></textarea><br><br>
+                <textarea class="textarea" name="text" id=""rows="10"></textarea><br><br>
 
                 <h6>Words to scramble*</h6>
                 <input type="text" placeholder="List of words to scramble separated by a space"><br>
@@ -25,14 +24,14 @@
                 <br><br>
 
                 <button id="btn">Redact</button>
-            </div>
+            
 
             <div class="content">
             <div class="hero">
                 <h6>Redacted Text</h6>
-                <h6>copy</h6>
+                <h6 class="copy">copy</h6>
             </div>    
-                <textarea name="redract" id="" cols="30" rows="10"></textarea>
+                <textarea class="textarea redacted" disabled name="redract" id=""rows="10"></textarea>
             </div>
         </div>
     </section>
