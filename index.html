@@ -4,40 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phonie</title>
+    <title>Redact</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.project 3.css">
 </head>
 <body>
-        <div class="loginbox">
-      <img src="../altschool 1/images/avatar (1).jpeg"  class="avatar" alt="">
-        <h1>Login Page</h1>
-        <form class="login-page">
-            <div class="namelists">
-            <label for="first-name" class="labels"></label>
-            <input  type="text" placeholder="First Name" required>
-            <label for="last-name" class="labels"></label>
-            <input type="text" placeholder="Last Name" required><br>
+        <div class="wrapper">
+    <section id="message">
+        <div class="container">
+            <div class="main">
+                <h4>Redactr</h4>
+                <h6>Text to redact*</h6>
+                <textarea name="text" id="" cols="30" rows="10"></textarea><br><br>
+
+                <h6>Words to scramble*</h6>
+                <input type="text" placeholder="List of words to scramble separated by a space"><br>
+                <br>
+                <h6>Replacement Characters</h6>
+                <input type="text" placeholder="Characters to replace redacted words with">
+                <br><br>
+
+                <button id="btn">Redact</button>
             </div>
-            
-            <label for="name"></label>
-            <input type="email" placeholder="E-mail address" required><br>
-            <label for="phone" class="phonie">Phone Number</label>
-            <select name="code" class="country-code" id="">
-                <option id="code" value="Nigeria">+234</option>
-                <option id="code" value="Nigeria">803</option>
-                <option id="code" value="Nigeria">804</option>
-                <option id="code" value="Nigeria">806</option>
-                <option id="code" value="Nigeria">813</option>
-                <option id="code" value="Nigeria">814</option>
-                <option id="code" value="Nigeria">816</option>
-            </select>
-            <input type="tel" class="tele" placeholder="816 364 296" required><img class="mtn" src="../holiday/images/mtn.png"> <br>
-            <button type="button">Submit</button>
-         
-        </form>
-    </div>
+
+            <div class="content">
+            <div class="hero">
+                <h6>Redacted Text</h6>
+                <h6>copy</h6>
+            </div>    
+                <textarea name="redract" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    </section>
+
     
+    
+</div>
   
 
     <!-- // ============= EEND DO NOT EDIT ============== // -->
