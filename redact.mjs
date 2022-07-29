@@ -17,6 +17,10 @@ const wordsMatched = document.querySelector('#words-matched');
 const backwards = document.querySelector('#back');
 const refresh = document.querySelector('#refresh');
 const copied = document.querySelector('.copied');
+const facebook = document.querySelector('#facebook');
+const twitter = document.querySelector('#twitter');
+const whatsapp = document.querySelector('#whatsapp');
+const sms = document.querySelector('#sms');
 let valid  = false;
 let loading = false
 
@@ -95,19 +99,15 @@ function validateInputs() {
 }
 validateInputs();
 
-
-
 // function to sisplay loader
 function showLoader(){
-   
-  redactBtn.innerHTML='  <i class="fa fa-circle-o-notch fa-spin"></i>';
+  redactBtn.innerHTML='<i class="fa fa-circle-o-notch fa-spin"></i>';
    setTimeout(() => {
     redactContent.style.display = 'none';
     redactedContent.style.display = 'block';
    }, 1000);
    
 }
-
 // scramble onclick
 function scrambleText (){
          redactBtn.addEventListener('click', (e)=>{
@@ -174,10 +174,10 @@ function scramble__words() {
     redactedField.value = "No Match Found!";
   }
   wordsScanned.textContent =  originalArr.length;
-  wordsMatched.textContent = wordsToRedact.length;
+  wordsMatched.textContent = redactedField.value === "No Match Found!" ? 0 : wordsToRedact.length;
   let stringed = wordsToRedact.join("");
   totalChar = stringed.length;
-  charsScrambled.textContent = totalChar;
+  charsScrambled.textContent = redactedField.value === "No Match Found!" ? 0 : totalChar;
   let endTime = new Date().getTime();
   timeTaken = endTime - startTime;
   time.textContent = timeTaken + 1.2+'s';
@@ -220,7 +220,6 @@ function copyText(){
     copyBtn.addEventListener('click', (e)=>{
         e.preventDefault();
         redactedField.select();
-        console.log('copied');
         navigator.clipboard.writeText(redactedField.value);
         copied.style.display = 'block'
         setTimeout(()=>{
@@ -229,3 +228,17 @@ function copyText(){
     })
 }
 copyText();
+
+
+
+// function share on social media
+function shareOnSocialMedia (socialmedia,url){
+    socialmedia.addEventListener('click', (e)=>{
+        e.preventDefault();
+        window.open(url+encodeURIComponent(redactedField.value), '_blank');
+    })
+}
+shareOnSocialMedia(twitter,'https://twitter.com/intent/tweet?text=');
+shareOnSocialMedia(facebook,'https://www.facebook.com/sharer/sharer.php?u=');
+shareOnSocialMedia(whatsapp,'https://api.whatsapp.com/send?text=');
+shareOnSocialMedia(sms,'sms:?body=');

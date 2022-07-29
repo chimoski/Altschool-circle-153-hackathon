@@ -189,6 +189,12 @@ input::placeholder, textarea::placeholder{
     text-align: right;
     margin: 3rem;
 }
+.share i{
+    color: var(--h4-color);
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: .3rem;
+}
 
 .copied {
     display: none;
