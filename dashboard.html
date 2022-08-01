@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Lora:ital,wght@1,400;1,700&family=Prompt:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./dashboard.css" />
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <div class="header__logo">
+          <a href="/" class="altLogo">
+            Alt<span></span> <br />
+            school
+          </a>
+        </div>
+
+        <button class="header__hamburger hamburger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+      <aside class="aside">
+        <ul class="aside__menu">
+          <li class="aside__menu-list">
+            <a href="/" class="aside__menu-link" style="--delay: 1000ms"
+              ><svg
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m33.333 13.333-10-8.766a5 5 0 0 0-6.666 0l-10 8.766A5 5 0 0 0 5 17.1v14.567a5 5 0 0 0 5 5h20a5 5 0 0 0 5-5V17.083a5 5 0 0 0-1.667-3.75Zm-10 20h-6.666V25a1.667 1.667 0 0 1 1.666-1.667h3.334A1.667 1.667 0 0 1 23.333 25v8.333Zm8.334-1.666A1.667 1.667 0 0 1 30 33.333h-3.333V25a5 5 0 0 0-5-5h-3.334a5 5 0 0 0-5 5v8.333H10a1.667 1.667 0 0 1-1.667-1.666V17.083a1.667 1.667 0 0 1 .567-1.25l10-8.75a1.667 1.667 0 0 1 2.2 0l10 8.75a1.667 1.667 0 0 1 .567 1.25v14.584Z"
+                  fill="#fff"
+                />
+              </svg>
+              <span>Dashboard</span></a
+            >
+          </li>
+          <li class="aside__menu-list">
+            <a href="#" class="aside__menu-link" style="--delay: 1500ms">
+              <svg
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M17.929 38.75H8.75A3.75 3.75 0 0 1 5 35V24.586a3.749 3.749 0 0 1 3.079-3.688c2.642-.482 7.198-1.31 9.776-1.778a11.95 11.95 0 0 1 4.29 0c2.578.467 7.134 1.296 9.776 1.777A3.749 3.749 0 0 1 35 24.588V35a3.75 3.75 0 0 1-3.75 3.75H17.929Zm11.856-15.7.005.006c.219.328.27.739.139 1.11l-.883 2.5a1.252 1.252 0 0 1-.678.73l-1.66.724.66 1.321a1.25 1.25 0 0 1-.025 1.167l-3.136 5.642h7.043c.69 0 1.25-.56 1.25-1.25V24.586c0-.603-.432-1.121-1.026-1.23l-1.689-.306Zm-3.419-.623-4.668-.848a9.502 9.502 0 0 0-3.396 0l-4.668.848-.998 1.497.494 1.397 2.37 1.033c.314.137.558.397.675.72.117.322.096.678-.058.985l-.955 1.91 3.49 6.281h2.695l3.49-6.281-.954-1.91a1.246 1.246 0 0 1-.058-.985c.117-.323.361-.583.675-.72l2.37-1.033.494-1.397-.998-1.497Zm-16.151.623-1.689.306a1.252 1.252 0 0 0-1.026 1.23V35c0 .69.56 1.25 1.25 1.25h7.043l-3.135-5.642a1.25 1.25 0 0 1-.025-1.167l.66-1.321-1.66-.724a1.252 1.252 0 0 1-.68-.73l-.882-2.5a1.249 1.249 0 0 1 .139-1.11l.005-.006ZM28.75 30v2.5a1.25 1.25 0 0 0 2.5 0V30a1.25 1.25 0 0 0-2.5 0ZM20 1.25a8.13 8.13 0 0 0-8.125 8.125A8.13 8.13 0 0 0 20 17.5a8.13 8.13 0 0 0 8.125-8.125A8.13 8.13 0 0 0 20 1.25Zm0 2.5a5.627 5.627 0 0 1 5.625 5.625A5.627 5.627 0 0 1 20 15a5.627 5.627 0 0 1-5.625-5.625A5.627 5.627 0 0 1 20 3.75Z"
+                  fill="#fff"
+                />
+              </svg>
+              <span>Students</span></a
+            >
+          </li>
+          <li class="aside__menu-list">
+            <a href="#" class="aside__menu-link" style="--delay: 2000ms">
+              <svg
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5 35a3.75 3.75 0 0 0 3.75 3.75h22.5A3.75 3.75 0 0 0 35 35V24.586a3.749 3.749 0 0 0-3.079-3.688c-2.642-.482-7.198-1.31-9.776-1.778a11.95 11.95 0 0 0-4.29 0c-2.578.467-7.134 1.296-9.776 1.777A3.749 3.749 0 0 0 5 24.588V35Zm17.885-13.205 1.876 7.134a2.448 2.448 0 0 1-.841 2.535l-2.349 1.875a2.522 2.522 0 0 1-3.142 0l-2.349-1.875a2.448 2.448 0 0 1-.841-2.535l1.876-7.134-8.589 1.561a1.252 1.252 0 0 0-1.026 1.23V35c0 .69.56 1.25 1.25 1.25h22.5c.69 0 1.25-.56 1.25-1.25V24.586c0-.603-.432-1.121-1.026-1.23l-8.589-1.561Zm-2.681-.366a7.288 7.288 0 0 0-.408 0l-2.13 8.102 2.323 1.853a.016.016 0 0 0 .022 0l2.323-1.853-2.13-8.102ZM20 1.25a8.13 8.13 0 0 0-8.125 8.125A8.13 8.13 0 0 0 20 17.5a8.13 8.13 0 0 0 8.125-8.125A8.13 8.13 0 0 0 20 1.25Zm0 2.5a5.627 5.627 0 0 1 5.625 5.625A5.627 5.627 0 0 1 20 15a5.627 5.627 0 0 1-5.625-5.625A5.627 5.627 0 0 1 20 3.75Z"
+                  fill="#fff"
+                />
+              </svg>
+              <span>Teachers</span></a
+            >
+          </li>
+        </ul>
+      </aside>
+    </header>
+
+    <main>
+      <section class="dashboard">
+        <div class="container">
+          <div class="dashboard__header">
+            <h2 class="title">Dashboard</h2>
+            <!-- <div class="dashboard__search">
+              <button>
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+              <input type="text" class="search-input" placeholder="Search" />
+            </div> -->
+          </div>
+
+          <div class="dashboard__stats">
+            <div class="dashboard__stat-students dashboard__stat">
+              <div class="icon">
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17.929 38.75H8.75A3.75 3.75 0 0 1 5 35V24.586a3.749 3.749 0 0 1 3.079-3.688c2.642-.482 7.198-1.31 9.776-1.778a11.95 11.95 0 0 1 4.29 0c2.578.467 7.134 1.296 9.776 1.777A3.749 3.749 0 0 1 35 24.588V35a3.75 3.75 0 0 1-3.75 3.75H17.929Zm11.856-15.7.005.006c.219.328.27.739.139 1.11l-.883 2.5a1.252 1.252 0 0 1-.678.73l-1.66.724.66 1.321a1.25 1.25 0 0 1-.025 1.167l-3.136 5.642h7.043c.69 0 1.25-.56 1.25-1.25V24.586c0-.603-.432-1.121-1.026-1.23l-1.689-.306Zm-3.419-.623-4.668-.848a9.502 9.502 0 0 0-3.396 0l-4.668.848-.998 1.497.494 1.397 2.37 1.033c.314.137.558.397.675.72.117.322.096.678-.058.985l-.955 1.91 3.49 6.281h2.695l3.49-6.281-.954-1.91a1.246 1.246 0 0 1-.058-.985c.117-.323.361-.583.675-.72l2.37-1.033.494-1.397-.998-1.497Zm-16.151.623-1.689.306a1.252 1.252 0 0 0-1.026 1.23V35c0 .69.56 1.25 1.25 1.25h7.043l-3.135-5.642a1.25 1.25 0 0 1-.025-1.167l.66-1.321-1.66-.724a1.252 1.252 0 0 1-.68-.73l-.882-2.5a1.249 1.249 0 0 1 .139-1.11l.005-.006ZM28.75 30v2.5a1.25 1.25 0 0 0 2.5 0V30a1.25 1.25 0 0 0-2.5 0ZM20 1.25a8.13 8.13 0 0 0-8.125 8.125A8.13 8.13 0 0 0 20 17.5a8.13 8.13 0 0 0 8.125-8.125A8.13 8.13 0 0 0 20 1.25Zm0 2.5a5.627 5.627 0 0 1 5.625 5.625A5.627 5.627 0 0 1 20 15a5.627 5.627 0 0 1-5.625-5.625A5.627 5.627 0 0 1 20 3.75Z"
+                    fill="#fff"
+                  />
+                </svg>
+              </div>
+              <div class="text">
+                <p>Students</p>
+                <span class="student-stat"></span>
+              </div>
+            </div>
+
+            <div class="dashboard__stat-teachers dashboard__stat">
+              <div class="icon">
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5 35a3.75 3.75 0 0 0 3.75 3.75h22.5A3.75 3.75 0 0 0 35 35V24.586a3.749 3.749 0 0 0-3.079-3.688c-2.642-.482-7.198-1.31-9.776-1.778a11.95 11.95 0 0 0-4.29 0c-2.578.467-7.134 1.296-9.776 1.777A3.749 3.749 0 0 0 5 24.588V35Zm17.885-13.205 1.876 7.134a2.448 2.448 0 0 1-.841 2.535l-2.349 1.875a2.522 2.522 0 0 1-3.142 0l-2.349-1.875a2.448 2.448 0 0 1-.841-2.535l1.876-7.134-8.589 1.561a1.252 1.252 0 0 0-1.026 1.23V35c0 .69.56 1.25 1.25 1.25h22.5c.69 0 1.25-.56 1.25-1.25V24.586c0-.603-.432-1.121-1.026-1.23l-8.589-1.561Zm-2.681-.366a7.288 7.288 0 0 0-.408 0l-2.13 8.102 2.323 1.853a.016.016 0 0 0 .022 0l2.323-1.853-2.13-8.102ZM20 1.25a8.13 8.13 0 0 0-8.125 8.125A8.13 8.13 0 0 0 20 17.5a8.13 8.13 0 0 0 8.125-8.125A8.13 8.13 0 0 0 20 1.25Zm0 2.5a5.627 5.627 0 0 1 5.625 5.625A5.627 5.627 0 0 1 20 15a5.627 5.627 0 0 1-5.625-5.625A5.627 5.627 0 0 1 20 3.75Z"
+                    fill="#fff"
+                  />
+                </svg>
+              </div>
+              <div class="text">
+                <p>Teachers</p>
+                <span class="teacher-stat">400</span>
+              </div>
+            </div>
+            <div class="dashboard__stat-tracks dashboard__stat">
+              <div class="icon">
+                <i class="fas fa-thin fa-book"></i>
+              </div>
+              <div class="text">
+                <p>Tracks</p>
+                <span class="track-stat">3</span>
+              </div>
+            </div>
+            <div class="dashboard__stat-age dashboard__stat">
+              <div class="icon">
+                <i class="fa fa-child"></i>
+              </div>
+              <div class="text">
+                <p>Average age</p>
+                <span class="avgAge-stat">400</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ageChart" class="ageChart">
+        <div class="ageChart__container container">
+          <h2 class="ageChart__title title">Average Age</h2>
+          <div class="ageChart__body">
+            <div class="ageChart__header">
+              <div class="ageChart__legends">
+                <div class="ageChart__legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>18-20</p>
+                </div>
+                <div class="ageChart__legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>21-25</p>
+                </div>
+                <div class="ageChart__legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>26-30</p>
+                </div>
+                <div class="ageChart__legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>31-35</p>
+                </div>
+              </div>
+            </div>
+            <div class="y-axis">
+              <small>15</small>
+              <small>10</small>
+              <small>5</small>
+              <small>0</small>
+            </div>
+
+            <div class="x-axis">
+              <small>18-20</small>
+              <small>21-25</small>
+              <small>26-30</small>
+              <small>32-35</small>
+            </div>
+
+            <ul class="line-charts" style="--count: 4">
+              <div class="segment"></div>
+              <div class="segment"></div>
+              <div class="segment"></div>
+              <div class="segment"></div>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="piechart">
+        <div class="piechart__container container">
+          <div class="piechart__title title">
+            <h2>Pie Chart</h2>
+          </div>
+          <div class="piechart__body">
+            <div class="piechart__tracks">
+              <ul>
+                <li></li>
+              </ul>
+              <div class="piechart__tracks-legends">
+                <div class="piechart-legend backend-legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>backend <span class="pie-backend-stat"></span></p>
+                </div>
+                <div class="piechart-legend frontend-legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>frontend <span class="pie-frontend-stat"></span></p>
+                </div>
+                <div class="piechart-legend cloud-legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>cloud <span class="pie-cloud-stat"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="piechart__gender">
+              <ul>
+                <li></li>
+              </ul>
+              <div class="piechart__gender-legends">
+                <div class="piechart-legend male-legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>Male <span class="pie-male-stat"></span></p>
+                </div>
+                <div class="piechart-legend female-legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>Female <span class="pie-female-stat"></span></p>
+                </div>
+                <div class="piechart-legend other-legend">
+                  <i class="fa-solid fa-square"></i>
+                  <p>Other <span class="pie-other-stat"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="students" id="students">
+        <div class="students__container container">
+          <div class="students__title">
+            <h1 class="title">Students</h1>
+            <div class="students__select">
+              <select name="sort" id="sort">
+                <option value="name-asc">Name Asc</option>
+                <option value="name-desc">Name Desc</option>
+                <option value="id">ID</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-container">
+            <table class="students__table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Id</th>
+                  <th>Track</th>
+                  <th>Gender</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr>
+                  <td class="avatar">
+                    <img src="./img1.webp" alt="user" />
+                    <span> Darwin Nunez</span>
+                  </td>
+                  <td>Alt01</td>
+                  <td>Frontend</td>
+                  <td>Male</td>
+                  <td>user@45gmail.com</td>
+                </tr>
+                <tr>
+                  <td class="avatar">
+                    <img src="./img2.webp" alt="user" />
+                    <span>Thiago Jordan</span>
+                  </td>
+                  <td>Alt02</td>
+                  <td>Backend</td>
+                  <td>Male</td>
+                  <td>user@45gmail.com</td>
+                </tr>
+                <tr>
+                  <td class="avatar">
+                    <img src="./img1.webp" alt="user" />
+                    <span>Dele Amadi</span>
+                  </td>
+                  <td>Alt03</td>
+                  <td>Frontend</td>
+                  <td>Male</td>
+                  <td>user@45gmail.com</td>
+                </tr>
+                <tr>
+                  <td class="avatar">
+                    <img src="./img2.webp" alt="user" />
+                    <span> Sandra Tamil</span>
+                  </td>
+                  <td>Alt04</td>
+                  <td>Cloud</td>
+                  <td>Male</td>
+                  <td>user@45gmail.com</td>
+                </tr>
+                <tr>
+                  <td class="avatar">
+                    <img src="./img1.webp" alt="user" />
+                    <span>Ayo Oladare</span>
+                  </td>
+                  <td>Alt05</td>
+                  <td>Frontend</td>
+                  <td>Male</td>
+                  <td>user@45gmail.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- // ============= EEND DO NOT EDIT ============== // -->
+    <script src="dashboard.mjs" type="module"></script>
+    <!-- // ============= EEND DO NOT EDIT ============== // -->
+  </body>
+</html>
