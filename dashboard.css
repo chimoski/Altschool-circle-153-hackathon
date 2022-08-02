@@ -412,7 +412,7 @@ li {
 }
 
 .line-charts > li {
-  background-color: var(--lightOrange);
+  /* background-color: var(--lightOrange);
   height: 100%;
   width: calc(100% / var(--count));
   clip-path: polygon(
@@ -420,7 +420,12 @@ li {
     0 calc(100% - var(--previous-value)),
     100% calc(100% - var(--value)),
     100% 100%
-  );
+  ); */
+  background-color: var(--orange);
+  width: 40px;
+  height: var(--value);
+  position: absolute;
+  bottom: 0;
 }
 
 .y-axis > small {
@@ -570,7 +575,7 @@ td {
   color: var(--black);
   font-size: 0.75rem;
   padding: 0.875rem 0.5rem;
-  text-align: left;
+  text-align: center;
 }
 
 thead > tr,

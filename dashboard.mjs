@@ -143,16 +143,20 @@ function lineChart(arr) {
     let line = chartLines[i];
     let segment = segments[i];
     let x = xAxis[i];
+    const leftPosition = `${
+      (chartElWidth / chartLines.length) * (i + 1) - 60
+    }px`;
 
     // set propery for clip-path
     line.style.setProperty("--value", `${arr[i]}%`);
     line.style.setProperty("--previous-value", `${i === 0 ? 0 : arr[i - 1]}%`);
+    line.style.left = leftPosition;
 
     // position each point
-    segment.style.bottom = `${arr[i]}%`;
-    segment.style.left = `${(chartElWidth / chartLines.length) * (i + 1)}px`;
+    // segment.style.bottom = `${arr[i]}%`;
+    // segment.style.left = leftPosition;
 
-    x.style.left = `${(chartElWidth / chartLines.length) * (i + 1)}px`;
+    x.style.left = leftPosition;
   }
 }
 
