@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Prompt:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Circle-153-Redactr</title>
+
+    <link rel="stylesheet" href="redactr.css" />
+  </head>
+  <body>
+    <form action="">
+        <div class="container">
+            <h3>Redactr</h3>
+            <div class="form-control">
+                <div class="form">
+                    <label for="message">Text to redactr*</label>
+                    <input type="text" id="words" name="text" placeholder=""  style="height: 100px;">
+                </div>
+                <div class="form"><label for="message">Words to scramble*</label> 
+                    <input type="text" id="words" name="text" placeholder="List of words to scramble, seperated by a space"  style="height: 40px;"></div>   
+                <div class="form">
+                    <label for="message">Replacement characters</label> 
+                    <input type="text" id="words" name="text" placeholder="characters to replace redacted words with"  style="height: 40px;">
+                </div>   
+            </div>
+            <div class="btn-container">
+              <button class="btn-submit">Redactr</button>
+          </div>
+          <div class="form-control">
+            <div class="form">
+              <label for="message">Redacted Text</label>
+              <input type="text" id="words" name="text" placeholder=""  style="height: 200px;">
+          </div>
+          </div>
+        </div>
+    </form>
+  </body>

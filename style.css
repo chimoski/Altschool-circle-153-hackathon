@@ -112,7 +112,7 @@ nav .link1 {
 nav .link1,
 nav .link2 {
   display: inline-block;
-  /* background-color: hsla(var(--accent-color), 1); */
+  background-color: hsla(var(--accent-color), 1);
   text-decoration: none;
   color: hsla(var(--accent-color), 0.9);
   padding: 0.25rem 0.5rem;
@@ -129,7 +129,7 @@ nav .link2:hover {
 }
 
 .wrapper {
-  /* padding-top: 50px; */
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
