@@ -15,7 +15,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./newDashboard.css" />
+    <link rel="stylesheet" href="./dash.css" />
 
     <title>Dashboard</title>
   </head>
@@ -38,7 +38,10 @@
       <aside class="aside">
         <ul class="aside__menu">
           <li class="aside__menu-list">
-            <a href="/" class="aside__menu-link" style="--delay: 1000ms"
+            <a
+              href="#dashboard"
+              class="aside__menu-link"
+              style="--delay: 1000ms"
               ><svg
                 viewBox="0 0 40 40"
                 fill="none"
@@ -53,7 +56,11 @@
             >
           </li>
           <li class="aside__menu-list">
-            <a href="#" class="aside__menu-link" style="--delay: 1500ms">
+            <a
+              href="#students"
+              class="aside__menu-link"
+              style="--delay: 1500ms"
+            >
               <svg
                 viewBox="0 0 40 40"
                 fill="none"
@@ -91,16 +98,10 @@
     </header>
 
     <main>
-      <section class="dashboard">
+      <section class="dashboard" id="dashboard">
         <div class="container">
           <div class="dashboard__header">
             <h2 class="title">Dashboard</h2>
-            <!-- <div class="dashboard__search">
-              <button>
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-              <input type="text" class="search-input" placeholder="Search" />
-            </div> -->
           </div>
 
           <div class="dashboard__stats">
@@ -125,7 +126,7 @@
               </div>
             </div>
 
-            <div class="dashboard__stat-teachers dashboard__stat">
+            <div class="dashboard__stat-teachers dashboard__stat" style="--delay:200ms">
               <div class="icon">
                 <svg
                   viewBox="0 0 40 40"
@@ -145,7 +146,7 @@
                 <span class="teacher-stat">400</span>
               </div>
             </div>
-            <div class="dashboard__stat-tracks dashboard__stat">
+            <div class="dashboard__stat-tracks dashboard__stat"style="--delay:400ms">
               <div class="icon">
                 <i class="fas fa-thin fa-book"></i>
               </div>
@@ -154,7 +155,7 @@
                 <span class="track-stat">3</span>
               </div>
             </div>
-            <div class="dashboard__stat-age dashboard__stat">
+            <div class="dashboard__stat-age dashboard__stat" style="--delay:600ms">
               <div class="icon">
                 <i class="fa fa-child"></i>
               </div>
@@ -163,73 +164,92 @@
                 <span class="avgAge-stat">400</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="ageChart" class="ageChart">
-        <div class="ageChart__container container">
-          <h2 class="ageChart__title title">Average Age</h2>
-          <div class="ageChart__body">
-            <div class="ageChart__header">
-              <div class="ageChart__legends">
-                <div class="ageChart__legend">
-                  <i class="fa-solid fa-square"></i>
-                  <p>18-20</p>
-                </div>
-                <div class="ageChart__legend">
-                  <i class="fa-solid fa-square"></i>
-                  <p>21-25</p>
-                </div>
-                <div class="ageChart__legend">
-                  <i class="fa-solid fa-square"></i>
-                  <p>26-30</p>
-                </div>
-                <div class="ageChart__legend">
-                  <i class="fa-solid fa-square"></i>
-                  <p>31-35</p>
-                </div>
+            <div class="dashboard__stat-maxAge dashboard__stat" style="--delay:800ms">
+              <div class="icon">
+                <i class="fa fa-child"></i>
+              </div>
+              <div class="text">
+                <p>Max age</p>
+                <span class="maxAge-stat">400</span>
               </div>
             </div>
-            <div class="y-axis">
-              <small>15</small>
-              <small>10</small>
-              <small>5</small>
-              <small>0</small>
+            <div class="dashboard__stat-minAge dashboard__stat" style="--delay:1000ms">
+              <div class="icon">
+                <i class="fa fa-child"></i>
+              </div>
+              <div class="text">
+                <p>Min age</p>
+                <span class="minAge-stat">400</span>
+              </div>
             </div>
-
-            <div class="x-axis">
-              <small>18-20</small>
-              <small>21-25</small>
-              <small>26-30</small>
-              <small>32-35</small>
-            </div>
-
-            <ul class="line-charts" style="--count: 4">
-              <div class="segment"></div>
-              <div class="segment"></div>
-              <div class="segment"></div>
-              <div class="segment"></div>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
           </div>
         </div>
       </section>
 
-      <section class="piechart">
-        <div class="piechart__container container">
-          <div class="piechart__title title">
-            <h2>Pie Chart</h2>
-          </div>
-          <div class="piechart__body">
-            <div class="track-container">
-              <div class="piechart__tracks">
-                <ul>
-                  <li></li>
+      <section class="charts">
+        <div class="charts__container container">
+          <div class="ageChart bar__chart" style="--delay: 300ms">
+            <h2 class="ageChart__title title">Age BarChart</h2>
+            <div class="ageChart__body">
+              <div class="ageChart__header">
+                <div class="ageChart__legends">
+                  <div class="ageChart__legend">
+                    <i class="fa-solid fa-square"></i>
+                    <p><span class="age1"></span></p>
+                  </div>
+                  <div class="ageChart__legend">
+                    <i class="fa-solid fa-square"></i>
+                    <p><span class="age2"></span></p>
+                  </div>
+                  <div class="ageChart__legend">
+                    <i class="fa-solid fa-square"></i>
+                    <p><span class="age3"></span></p>
+                  </div>
+                  <div class="ageChart__legend">
+                    <i class="fa-solid fa-square"></i>
+                    <p><span class="age4"></span></p>
+                  </div>
+                </div>
+                <div class="chart-descr">
+                  <p>xAxis - Age Group</p>
+                  <p>yAxis - Frequency</p>
+                </div>
+              </div>
+
+              <div class="ageChart__bar">
+                <div class="y-axis">
+                  <small>15</small>
+                  <small>10</small>
+                  <small>5</small>
+                  <small>0</small>
+                </div>
+
+                <div class="x-axis">
+                  <small>18-20</small>
+                  <small>21-25</small>
+                  <small>26-30</small>
+                  <small>32-35</small>
+                </div>
+
+                <ul class="bar-charts" style="--count: 4">
+                  <li style="--delay: 400ms"></li>
+                  <li style="--delay: 800ms"></li>
+                  <li style="--delay: 1200ms"></li>
+                  <li style="--delay: 1600ms"></li>
                 </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="charts__pie" style="--delay: 600ms">
+            <h2 class="piechart__title">Pie Chart</h2>
+            <div class="pie">
+              <div class="piechart__body">
+                <div class="piechart__tracks">
+                  <ul>
+                    <li></li>
+                  </ul>
+                </div>
                 <div class="piechart__tracks-legends">
                   <div class="piechart-legend backend-legend">
                     <i class="fa-solid fa-square"></i>
@@ -245,8 +265,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="gender-container">
               <div class="piechart__gender">
                 <ul>
                   <li></li>
@@ -274,76 +292,90 @@
       <section class="students" id="students">
         <div class="students__container container">
           <div class="students__title">
-            <h1 class="title">Students</h1>
-            <div class="students__select">
-              <select name="sort" id="sort">
-                <option value="name-asc">Name Asc</option>
-                <option value="name-desc">Name Desc</option>
-                <option value="id">ID</option>
-              </select>
-            </div>
+            <h1 class="title">Database</h1>
+            <!-- <div class="select-container">
+              <div class="student__select">
+                <div data-value="name" class="select-options">Name Asc</div>
+                <div data-value="gender" class="select-options">Gender</div>
+                <div data-value="id" class="select-options">ID</div>
+              </div>
+            </div> -->
+          </div>
+          <div class="database-control">
+            <button class="studentBtn btn-control active">Students</button>
+            <button class="teacherBtn btn-control">Teachers</button>
           </div>
           <div class="table-container">
             <table class="students__table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Id</th>
-                  <th>Track</th>
-                  <th>Gender</th>
+                  <th>
+                    Name
+                    <button class="name-icon sort-btn" data-value="name">
+                      <i class="fa fa-angle-down"></i>
+                    </button>
+                  </th>
+                  <th>
+                    Id
+                    <button class="id-icon sort-btn" data-value="id">
+                      <i class="fa fa-angle-down"></i>
+                    </button>
+                  </th>
+                  <th>
+                    Track
+                    <!-- <button class="track-icon sort-btn" data-value="track">
+                      <i class="fa fa-angle-down"></i>
+                    </button> -->
+                  </th>
+                  <th>
+                    Gender
+                    <!-- <button class="gender- sort-btn">
+                      <i class="fa fa-angle-down"></i>
+                    </button> -->
+                  </th>
                   <th>Contact</th>
                 </tr>
               </thead>
-              <tbody id="tableBody">
+              <tbody id="tableBody"></tbody>
+            </table>
+           
+            <div class="pagination">
+              <div class="pagination-list">
+                <div class="arrows">
+                  <button class="arrow-right">
+                    <i class="fa-solid fa-angle-right"></i>
+                  </button>
+                  <button disabled class="arrow-left blur">
+                    <i class="fa-solid fa-angle-left"></i>
+                  </button>
+                </div>
+                <span data-index="0" class="active">1</span>
+                <span data-index="1">2</span>
+                <span data-index="2">3</span>
+                <span data-index="3">4</span>
+                <span data-index="4">5</span>
+              </div>
+            </div>
+             <table class="teachers__table">
+              <thead>
                 <tr>
-                  <td class="avatar">
-                    <img src="./img1.webp" alt="user" />
-                    <span> Darwin Nunez</span>
-                  </td>
-                  <td>Alt01</td>
-                  <td>Frontend</td>
-                  <td>Male</td>
-                  <td>user@45gmail.com</td>
+                  <th>Name <button class="name-icon sort-btn" data-value="teacher-name">
+                      <i class="fa fa-angle-down"></i>
+                    </button></th>
+                  <th>No of Tracks</th>
+                  <th>Tracks</th>
+                </tr>
+              </thead>
+              <tbody id="tableTeacher">
+                <tr>
+                  <td>Ojo</td>
+                  <td>2</td>
+                  <td>Frontend, Backend</td>
                 </tr>
                 <tr>
-                  <td class="avatar">
-                    <img src="./img2.webp" alt="user" />
-                    <span>Thiago Jordan</span>
-                  </td>
-                  <td>Alt02</td>
-                  <td>Backend</td>
-                  <td>Male</td>
-                  <td>user@45gmail.com</td>
-                </tr>
-                <tr>
-                  <td class="avatar">
-                    <img src="./img1.webp" alt="user" />
-                    <span>Dele Amadi</span>
-                  </td>
-                  <td>Alt03</td>
-                  <td>Frontend</td>
-                  <td>Male</td>
-                  <td>user@45gmail.com</td>
-                </tr>
-                <tr>
-                  <td class="avatar">
-                    <img src="./img2.webp" alt="user" />
-                    <span> Sandra Tamil</span>
-                  </td>
-                  <td>Alt04</td>
-                  <td>Cloud</td>
-                  <td>Male</td>
-                  <td>user@45gmail.com</td>
-                </tr>
-                <tr>
-                  <td class="avatar">
-                    <img src="./img1.webp" alt="user" />
-                    <span>Ayo Oladare</span>
-                  </td>
-                  <td>Alt05</td>
-                  <td>Frontend</td>
-                  <td>Male</td>
-                  <td>user@45gmail.com</td>
+                  <td>Rising</td>
+                  <td>1</td>
+                  <td> Backend</td>
                 </tr>
               </tbody>
             </table>
@@ -352,8 +384,47 @@
       </section>
     </main>
 
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
-    <script src="./newDashboard.mjs" type="module"></script>
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
+    <aside class="summary">
+      <div class="summary__container">
+        <div class="profile">
+          <p class="instructor">Instructor</p>
+          <img
+            src="https://s3.amazonaws.com/uifaces/faces/twitter/bigmancho/128.jpg"
+            alt=""
+            class="profile__image"
+          />
+          <h3 class="profile__name">Tony</h3>
+          <p class="profile__track">Frontend</p>
+        </div>
+        <div class="profile__info">
+          <div>
+            <p class="profile__age"></p>
+          </div>
+          <div>
+            <p class="profile__gender"></p>
+          </div>
+        </div>
+        <div class="profile__tracks">
+          <p></p>
+        </div>
+        <div class="profile__about">
+          <h4>About</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae
+            voluptatum architecto beatae fugit, commodi sed! Rerum quo quod
+            illum repellat?
+          </p>
+        </div>
+
+        <div class="profile__schedule">
+          <h4>Schedule</h4>
+          <h5>Town Hall</h6>
+          <h5>Live Class</h5>
+          <h5>Fun Friday</h5>
+        </div>
+      </div>
+    </aside>
+
+    <script src="./dash.mjs" type="module"></script>
   </body>
 </html>

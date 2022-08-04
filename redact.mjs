@@ -265,3 +265,5 @@ shareOnSocialMedia(twitter, "https://twitter.com/intent/tweet?text=");
 shareOnSocialMedia(facebook, "https://www.facebook.com/sharer/sharer.php?u=");
 shareOnSocialMedia(whatsapp, "https://api.whatsapp.com/send?text=");
 shareOnSocialMedia(sms, "sms:?body=");
+
+document.querySelector("footer span").textContent = new Date().getFullYear();

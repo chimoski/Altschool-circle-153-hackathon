@@ -129,7 +129,7 @@ nav .link2:hover {
 }
 
 .wrapper {
-  /* padding-top: 50px; */
+  padding-top: 3.125rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -537,6 +537,7 @@ footer a:hover {
     flex-direction: row-reverse;
     width: 90%;
     gap: 0 2rem;
+    padding-top: 0;
   }
 
   .wrapper > div {
