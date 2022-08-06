@@ -2,6 +2,8 @@
   --primary-color: hsl(0, 0%, 54%);
   --secondary-color: hsl(0, 0%, 0%);
   --accent-color: 92, 52%, 36%;
+  /* --accent-color: 147, 100%, 28%; */
+  /* --accent-color: 147, 96%, 34%; */
   --error-color: hsl(0, 100%, 41%);
   --fontSize-sm: 0.625rem;
   --fontSize-md: 0.875rem;
@@ -275,16 +277,27 @@ input[type="number"] {
 
 .form__input-number:focus,
 .form__input-number:not(:placeholder-shown).form__input:not(:focus) {
-  padding-left: 4.5rem;
+  padding-left: 6.5rem;
 }
 
 .custom-select {
   position: absolute;
   top: 0.4375rem;
-  background-color: rgba(133, 133, 133, 0.3);
   padding-right: 1.5rem;
   cursor: pointer;
   color: rgba(133, 133, 133, 1);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-option {
+  display: flex;
+  font-size: 0.9rem;
+}
+
+.fixed-option img {
+  width: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 6px;
 }
 
 .custom-options {
@@ -292,7 +305,7 @@ input[type="number"] {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   color: var(--primary-color);
   border: 0;
-  width: 4rem;
+  width: 5.5rem;
   padding: 0.5rem 0;
   position: absolute;
   top: 2.25rem;
@@ -311,6 +324,15 @@ input[type="number"] {
   text-align: center;
   transition: all 400ms ease-in;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.option img {
+  width: 1rem;
+  margin-inline: 0.25rem;
 }
 
 .option:hover {
@@ -325,7 +347,7 @@ input[type="number"] {
   padding: 0;
   position: absolute;
   top: 0;
-  left: 3rem;
+  right: 3px;
   pointer-events: none;
 }
 
@@ -521,7 +543,7 @@ footer a:hover {
   }
 
   nav .links a {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .altLogo {

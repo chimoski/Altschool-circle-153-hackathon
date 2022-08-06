@@ -270,7 +270,7 @@ document.querySelector("footer span").textContent = new Date().getFullYear();
 
 ///////////////////// SCRAMBLE WORDS //////////////////////////////////
 
-let dict = "0123456789qwertyuiopasdfghjkllzxcvbnmm!@#$%^&*()<>".split("");
+let dict = "0123456789qwertyuiop!@#$%^&*()<>".split("");
 
 let el = document.querySelector(".scramble-text");
 
@@ -307,9 +307,7 @@ function init(str) {
 }
 init("Redacter by Circle 153");
 
-setInterval(() => {
-  el.textContent = "";
-  init("Redacter by Circle 153");
-}, 5000);
-
-console.log(el);
+// setInterval(() => {
+//   el.textContent = "";
+//   init("Redacter by Circle 153");
+// }, 5000);
