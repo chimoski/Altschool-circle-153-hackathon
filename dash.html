@@ -37,7 +37,7 @@
       </nav>
       <aside class="aside">
         <ul class="aside__menu">
-          <li class="aside__menu-list">
+          <li class="aside__menu-list active">
             <a
               href="#dashboard"
               class="aside__menu-link"
@@ -55,7 +55,7 @@
               <span>Dashboard</span></a
             >
           </li>
-          <li class="aside__menu-list">
+          <li class="aside__menu-list student-link">
             <a
               href="#students"
               class="aside__menu-link"
@@ -76,8 +76,8 @@
               <span>Students</span></a
             >
           </li>
-          <li class="aside__menu-list">
-            <a href="#" class="aside__menu-link" style="--delay: 2000ms">
+          <li class="aside__menu-list teachers-link">
+            <a href="#teachers" class="aside__menu-link" style="--delay: 2000ms">
               <svg
                 viewBox="0 0 40 40"
                 fill="none"
@@ -312,13 +312,13 @@
                   <th>
                     Name
                     <button class="name-icon sort-btn" data-value="name">
-                      <i class="fa fa-angle-down"></i>
+                      <i class="fas fa-sort"></i>
                     </button>
                   </th>
                   <th>
                     Id
                     <button class="id-icon sort-btn" data-value="id">
-                      <i class="fa fa-angle-down"></i>
+                      <i class="fas fa-sort"></i>
                     </button>
                   </th>
                   <th>
@@ -356,11 +356,11 @@
                 <span data-index="4">5</span>
               </div>
             </div>
-             <table class="teachers__table">
+             <table class="teachers__table" id="teachers">
               <thead>
                 <tr>
                   <th>Name <button class="name-icon sort-btn" data-value="teacher-name">
-                      <i class="fa fa-angle-down"></i>
+                     <i class="fas fa-sort"></i>
                     </button></th>
                   <th>No of Tracks</th>
                   <th>Tracks</th>

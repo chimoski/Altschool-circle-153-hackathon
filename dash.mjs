@@ -10,6 +10,7 @@ const controls = document.querySelectorAll(".btn-control");
 const studentsTable = document.querySelector(".students__table");
 const teachersTable = document.querySelector(".teachers__table");
 const paginationEl = document.querySelector(".pagination");
+const linkLists = document.querySelectorAll(".aside__menu-list");
 
 // stats
 const studentStat = document.querySelector(".student-stat");
@@ -71,6 +72,34 @@ let blue = getComputedStyle(document.documentElement).getPropertyValue(
 // menu open & close
 hamburgerBtn.addEventListener("click", () => {
   header.classList.toggle("open");
+});
+
+// link active
+
+linkLists.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    linkLists.forEach((links) => links.classList.remove("active"));
+    link.classList.add("active");
+    header.classList.remove("open");
+    if (link.classList.contains("teachers-link")) {
+      controls.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      document.querySelector(".teacherBtn").classList.add("active");
+      studentsTable.style.display = "none";
+      paginationEl.style.display = "none";
+      teachersTable.style.display = "table";
+    } else if (link.classList.contains("student-link")) {
+      console.log(link);
+      controls.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      document.querySelector(".studentBtn").classList.add("active");
+      studentsTable.style.display = "table";
+      paginationEl.style.display = "flex";
+      teachersTable.style.display = "none";
+    }
+  });
 });
 
 // header background
