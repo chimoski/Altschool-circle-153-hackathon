@@ -9,7 +9,7 @@
 }
 
 :root {
-  --h4-color: rgba(61, 161, 15, 0.925);
+  --h4-color: #03a84e;
   --main-color: #fff;
   --text-color: #000;
   --bg-color: rgb(249, 249, 248);
@@ -20,12 +20,13 @@
   --border-radius: 0.5rem;
   --small-font: 1.2rem;
   --border-radius-input: 0.3rem;
-  --accent-color: 92, 52%, 36%;
+  --accent-color: 147, 96%, 34%;
 }
 
 body {
   color: var(--text-color);
-  overflow: scroll;
+  overflow-x: hidden;
+  position: relative;
 }
 
 header {
@@ -96,6 +97,45 @@ nav .link2:hover {
   background-color: hsla(var(--accent-color), 0.7);
 }
 
+/********** Text   ***************/
+
+.text {
+  display: none;
+}
+
+.scramble-text {
+  font-size: 2rem;
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+  color: #a4a4a4;
+  position: relative;
+}
+
+.scramble-text::before {
+  content: attr(data-before);
+  word-break: break-all;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.scramble-text::after {
+  content: attr(data-after);
+  word-break: break-all;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.message {
+  opacity: 1;
+  transition: opacity 400ms ease;
+  transition-delay: 1000ms;
+}
+
+/* .message.delay {
+  opacity: 1;
+} */
+
 .container {
   position: relative;
   max-width: 600px;
@@ -136,6 +176,7 @@ h6 {
   font-family: inherit;
   font-size: 14px;
   color: rgb(65, 64, 64);
+  height: 8rem;
 }
 .textarea:focus {
   outline: 2px solid var(--h4-color);
@@ -271,14 +312,15 @@ textarea::placeholder {
 }
 
 footer {
-  background: hsla(var(--accent-color));
   width: 100%;
   text-align: center;
+  position: absolute;
+  bottom: -2rem;
 }
 
 footer a {
   text-decoration: none;
-  color: #fff;
+  color: hsl(var(--accent-color));
   transition: all 400ms ease-in;
 }
 
@@ -293,5 +335,51 @@ footer a:hover {
 
   .stat-img small {
     font-size: 10px;
+  }
+}
+
+@media (min-width: 50.6875rem) {
+  body::before {
+    content: "";
+    position: absolute;
+    height: 2000px;
+    width: 2000px;
+    border-radius: 50%;
+    top: -3%;
+    right: 48%;
+    transform: translateY(-50%);
+    background-image: linear-gradient(
+      -45deg,
+      hsla(var(--accent-color), 0.8) 0%,
+      hsl(var(--accent-color)) 100%
+    );
+  }
+
+  .altLogo {
+    color: #fff;
+  }
+
+  .altLogo span {
+    background-color: #fff;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .text {
+    display: block;
+    flex-basis: 40%;
+    margin-top: 12rem;
+  }
+
+  .scramble-text {
+    color: #fff;
+    font-family: "Lora", cursive;
+  }
+
+  .message {
+    flex-basis: 60%;
   }
 }
