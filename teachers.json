@@ -1,14 +1,14 @@
 [
   {
-    "email": "HalvorsonCy36@gmail.com",
+    "email": "RandolphB@gmail.com",
     "track": "Frontend, Backend",
     "trackNumber": 2,
-    "name": "Cyrus Halvorson",
-    "age": 35,
-    "gender": "F",
+    "name": "Randolph Boa",
+    "age": 24,
+    "gender": "M",
     "image": "https://s3.amazonaws.com/uifaces/faces/twitter/wtrsld/128.jpg",
     "altId": "I/Alt5",
-    "picture": "https://randomuser.me/api/portraits/med/women/53.jpg"
+    "picture": "https://randomuser.me/api/portraits/med/men/53.jpg"
   },
   {
     "email": "HauckMa25@gmail.com",
