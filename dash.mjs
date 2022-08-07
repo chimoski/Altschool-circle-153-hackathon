@@ -383,13 +383,6 @@ function throttle(cb, delay = 400) {
   };
 }
 
-// students.forEach((student) => {
-//   student.addEventListener("click", (e) => {
-//     student.parentNode.style.backgroundColor = green;
-//     console.log("student");
-//   });
-// });
-
 async function teachersData() {
   const res = await fetch("./teachers.json");
   let data = await res.json();
@@ -406,20 +399,22 @@ async function teachersData() {
 
   let btn = document.querySelector('[data-value="teacher-name"]');
 
-  btn.addEventListener("click", (e) => {
-    if (e.target.dataset.value === "teacher-name") {
+  let change = true;
+  btn.addEventListener("click", () => {
+    if (!change) {
       data = data.sort((a, b) => {
         return a.name > b.name ? 1 : -1;
       });
-      e.target.dataset.value = "teacher-name-rev";
-    } else if (e.target.dataset.value === "teacher-name-rev") {
+    }
+    if (change) {
       data = data.sort((a, b) => {
         return a.name > b.name ? -1 : 1;
       });
-      e.target.dataset.value = "teacher-name";
-    } else {
-      data = data;
     }
+    change = !change;
+
+    loadTeachers(data);
+    clickStudents(teachers, data, 0, 0, teachers.length, "tableTeacher");
   });
 
   if (!loadStudentInfo) {
@@ -428,8 +423,6 @@ async function teachersData() {
     profileAge.textContent = `Age: ${data[0].age}`;
     profileGender.textContent = `Gender: ${data[0].gender}`;
   }
-  console.log(profileName.textContent, "name2");
-  // loadStudentInfo = false;
 }
 
 teachersData();
