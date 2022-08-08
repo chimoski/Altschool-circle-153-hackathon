@@ -11,6 +11,8 @@ const studentsTable = document.querySelector(".students__table");
 const teachersTable = document.querySelector(".teachers__table");
 const paginationEl = document.querySelector(".pagination");
 const linkLists = document.querySelectorAll(".aside__menu-list");
+const instructorHeader = document.querySelector(".instructor");
+
 
 const spinner = document.querySelector(".spinner");
 
@@ -95,11 +97,12 @@ linkLists.forEach((link) => {
       teachersTable.style.display = "table";
 
       loadStudentInfo = false;
-
       teachersData();
+      instructorHeader.textContent = "Instructor";
     } else if (link.classList.contains("student-link")) {
       controls.forEach((btn) => {
         btn.classList.remove("active");
+      
       });
 
       document.querySelector(".studentBtn").classList.add("active");
@@ -110,6 +113,7 @@ linkLists.forEach((link) => {
       loadStudentInfo = true;
 
       studentData();
+      instructorHeader.textContent = "Student";
     }
   });
 });
@@ -142,7 +146,7 @@ controls.forEach((control) => {
       paginationEl.style.display = "flex";
       teachersTable.style.display = "none";
       loadStudentInfo = true;
-
+      instructorHeader.textContent = 'Student';
       studentData();
     }
     if (
@@ -153,6 +157,7 @@ controls.forEach((control) => {
       paginationEl.style.display = "none";
       teachersTable.style.display = "table";
       loadStudentInfo = false;
+      instructorHeader.textContent = 'Instructor';
       teachersData();
     }
   });
@@ -308,6 +313,7 @@ function sortTable(e, arrayData, idx, perPage, sliced) {
   let tableData = arrayData.slice(idx * perPage, sliced);
 
   loadTable(tableData);
+  changeTable(idx, paginationLists,arrayData, sliced, perPage);
 }
 
 function changeTable(idx, paginationLists, data, sliced, perPage) {
@@ -345,9 +351,11 @@ function clickStudents(
 ) {
   let tableData = data.slice(idx * perPage, sliced * (idx + 1));
   students = document.getElementById(`${table}`).querySelectorAll("tr");
+ 
 
-  if (table === "tableTeacher") {
-    document.querySelector(".instructor").style.display = "block";
+  if (table == "tableTeacher") {
+    console.log(table);
+  
   }
 
   students.forEach((student) => {
@@ -417,6 +425,7 @@ async function teachersData() {
   });
 
   if (!loadStudentInfo) {
+
     profileImage.src = data[0].picture;
     profileName.textContent = data[0].name;
     profileAge.textContent = `Age: ${data[0].age}`;

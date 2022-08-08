@@ -484,9 +484,10 @@ function startApp() {
   ///////////////////////// LOADING ANIMATION /////////
 
   const preloader = document.querySelector(".preloader");
-  let height = 0;
+  
 
   window.addEventListener("load", () => {
+    let height = 0;
     let fadeEffect = setInterval(() => {
       if (height < 100) {
         height += 1;
@@ -495,9 +496,10 @@ function startApp() {
       } else {
         document.querySelector(".circle-153").style.opacity = 1;
         preloader.style.opacity = 0;
+        preloader.style.zIndex = -10;
         clearInterval(fadeEffect);
       }
-    }, 200);
+    },50);
   });
 
   // ////////////////////////////////////////////////////////////////////////////////
