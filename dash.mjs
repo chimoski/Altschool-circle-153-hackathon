@@ -478,7 +478,6 @@ async function teachersData() {
 
   let teachers = document.getElementById("tableTeacher").querySelectorAll("tr");
   clickStudents(teachers, data, 0, 0, teachers.length, "tableTeacher");
-
   let btn = document.querySelector('[data-value="teacher-name"]');
 
   btn.addEventListener("click", (e) => {
