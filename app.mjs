@@ -481,6 +481,25 @@ function startApp() {
     });
   }
 
+  ///////////////////////// LOADING ANIMATION /////////
+
+  const preloader = document.querySelector(".preloader");
+  let height = 0;
+
+  window.addEventListener("load", () => {
+    let fadeEffect = setInterval(() => {
+      if (height < 100) {
+        height += 1;
+        document.querySelector(".progress").textContent = `${height}%`;
+        preloader.style.height = `${height}vh`;
+      } else {
+        document.querySelector(".circle-153").style.opacity = 1;
+        preloader.style.opacity = 0;
+        clearInterval(fadeEffect);
+      }
+    }, 200);
+  });
+
   // ////////////////////////////////////////////////////////////////////////////////
 }
 

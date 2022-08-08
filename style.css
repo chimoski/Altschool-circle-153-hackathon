@@ -2,6 +2,8 @@
   --primary-color: hsl(0, 0%, 54%);
   --secondary-color: hsl(0, 0%, 0%);
   --accent-color: 92, 52%, 36%;
+  /* --accent-color: 147, 100%, 28%; */
+  /* --accent-color: 147, 96%, 34%; */
   --error-color: hsl(0, 100%, 41%);
   --fontSize-sm: 0.625rem;
   --fontSize-md: 0.875rem;
@@ -79,6 +81,7 @@ nav {
 
 nav .links a {
   font-size: 0.9rem;
+  font-family: "Lora", cursive;
 }
 
 .altLogo {
@@ -230,6 +233,10 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.form__input-number {
+  margin-top: 0.2rem;
+}
+
 /* FireFox */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -275,16 +282,27 @@ input[type="number"] {
 
 .form__input-number:focus,
 .form__input-number:not(:placeholder-shown).form__input:not(:focus) {
-  padding-left: 4.5rem;
+  padding-left: 6.5rem;
 }
 
 .custom-select {
   position: absolute;
-  top: 0.4375rem;
-  background-color: rgba(133, 133, 133, 0.3);
+  top: 0.7rem;
   padding-right: 1.5rem;
   cursor: pointer;
   color: rgba(133, 133, 133, 1);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.fixed-option {
+  display: flex;
+  font-size: 0.9rem;
+}
+
+.fixed-option img {
+  width: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 6px;
 }
 
 .custom-options {
@@ -292,7 +310,7 @@ input[type="number"] {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   color: var(--primary-color);
   border: 0;
-  width: 4rem;
+  width: 4.5rem;
   padding: 0.5rem 0;
   position: absolute;
   top: 2.25rem;
@@ -308,9 +326,19 @@ input[type="number"] {
 }
 
 .option {
+  font-size: 0.9rem;
   text-align: center;
   transition: all 400ms ease-in;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.option img {
+  width: 1rem;
+  margin-inline: 0.25rem;
 }
 
 .option:hover {
@@ -325,7 +353,7 @@ input[type="number"] {
   padding: 0;
   position: absolute;
   top: 0;
-  left: 3rem;
+  right: 3px;
   pointer-events: none;
 }
 
@@ -521,7 +549,7 @@ footer a:hover {
   }
 
   nav .links a {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .altLogo {
@@ -597,6 +625,34 @@ footer a:hover {
   footer a {
     color: hsla(var(--accent-color), 0.8);
   }
+}
+
+/********Animations**********/
+
+.circle-153 {
+  opacity: 0;
+}
+
+.preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1px;
+  width: 100%;
+  background: hsla(var(--accent-color), 1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  transition: height 500ms ease, opacity 0.3s linear;
+}
+
+.progress {
+  color: #fff;
+  font-size: 3rem;
+  position: absolute;
+  right: 4rem;
+  bottom: 0rem;
 }
 
 @keyframes change {

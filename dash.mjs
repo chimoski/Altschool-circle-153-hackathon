@@ -10,6 +10,9 @@ const controls = document.querySelectorAll(".btn-control");
 const studentsTable = document.querySelector(".students__table");
 const teachersTable = document.querySelector(".teachers__table");
 const paginationEl = document.querySelector(".pagination");
+const linkLists = document.querySelectorAll(".aside__menu-list");
+
+const spinner = document.querySelector(".spinner");
 
 // stats
 const studentStat = document.querySelector(".student-stat");
@@ -68,9 +71,47 @@ let blue = getComputedStyle(document.documentElement).getPropertyValue(
   "--blue"
 );
 
+let loadStudentInfo = true;
+
 // menu open & close
 hamburgerBtn.addEventListener("click", () => {
   header.classList.toggle("open");
+});
+
+// link active
+linkLists.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    linkLists.forEach((links) => links.classList.remove("active"));
+    link.classList.add("active");
+    header.classList.remove("open");
+    if (link.classList.contains("teachers-link")) {
+      controls.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      document.querySelector(".teacherBtn").classList.add("active");
+      studentsTable.style.display = "none";
+      paginationEl.style.display = "none";
+      teachersTable.style.display = "table";
+
+      loadStudentInfo = false;
+
+      teachersData();
+    } else if (link.classList.contains("student-link")) {
+      controls.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      document.querySelector(".studentBtn").classList.add("active");
+      studentsTable.style.display = "table";
+      paginationEl.style.display = "flex";
+      teachersTable.style.display = "none";
+
+      loadStudentInfo = true;
+
+      studentData();
+    }
+  });
 });
 
 // header background
@@ -100,6 +141,9 @@ controls.forEach((control) => {
       studentsTable.style.display = "table";
       paginationEl.style.display = "flex";
       teachersTable.style.display = "none";
+      loadStudentInfo = true;
+
+      studentData();
     }
     if (
       control.classList.contains("active") &&
@@ -108,152 +152,30 @@ controls.forEach((control) => {
       studentsTable.style.display = "none";
       paginationEl.style.display = "none";
       teachersTable.style.display = "table";
+      loadStudentInfo = false;
+      teachersData();
     }
   });
 });
 
-const studentData = async () => {
+async function studentData() {
+  // spinner.style.display = "block";
+  // studentsTable.style.display = "none";
+  // paginationEl.style.display = "none";
+  // teachersTable.style.display = "none";
+
   const res = await fetch("./students.json");
   const data = await res.json();
 
-  let ageGrade1 = data.filter((el) => el.age > 17 && el.age <= 20).length;
-  let ageGrade2 = data.filter((el) => el.age > 20 && el.age <= 25).length;
-  let ageGrade3 = data.filter((el) => el.age > 26 && el.age <= 30).length;
-  let ageGrade4 = data.filter((el) => el.age > 31 && el.age <= 35).length;
+  // setTimeout(() => {
+  //   spinner.style.display = "none";
+  //   studentsTable.style.display = "table";
+  //   paginationEl.style.display = "flex";
+  //   teachersTable.style.display = "table";
+  // }, 2000);
 
-  age1Stat.textContent = ageGrade1;
-  age2Stat.textContent = ageGrade2;
-  age3Stat.textContent = ageGrade3;
-  age4Stat.textContent = ageGrade4;
-
-  let maxAgeLength = Math.max(ageGrade1, ageGrade2, ageGrade3, ageGrade4);
-
-  let ageHeight1 = ((ageGrade1 / maxAgeLength) * 90).toFixed(2);
-  let ageHeight2 = ((ageGrade2 / maxAgeLength) * 90).toFixed(2);
-  let ageHeight3 = ((ageGrade3 / maxAgeLength) * 90).toFixed(2);
-  let ageHeight4 = ((ageGrade4 / maxAgeLength) * 90).toFixed(2);
-
-  const cloud = data.filter((el) => el.track === "cloud").length;
-  const frontend = data.filter((el) => el.track === "frontend").length;
-  const backend = data.filter((el) => el.track === "backend").length;
-
-  const male = data.filter((el) => el.gender === "M").length;
-  const female = data.filter((el) => el.gender === "F").length;
-  const other = data.filter((el) => el.gender === "O").length;
-
-  const avgAge = data.reduce((prev, curr, _, { length }) => {
-    return prev + curr.age / length;
-  }, 0);
-
-  const age = data.map((el) => el.age);
-  const minAge = Math.min(...age);
-  const maxAge = Math.max(...age);
-
-  studentStat.textContent = data.length;
-  avgAgeStat.textContent = Math.floor(avgAge);
-  minAgeStat.textContent = minAge;
-  maxAgeStat.textContent = maxAge;
-
-  const positionForEachAge = [ageHeight1, ageHeight2, ageHeight3, ageHeight4];
-
-  // load line chart
-  BarChart(positionForEachAge);
-
-  // listen for resize on line-chart for responsive chart
-  window.addEventListener(
-    "resize",
-    throttle(() => {
-      BarChart(positionForEachAge);
-    })
-  );
-
-  pieChart(
-    pieTrack,
-    backend,
-    frontend,
-    cloud,
-    piebackendStat,
-    piefrontendStat,
-    piecloudStat,
-    green,
-    orange,
-    purple,
-    data
-  );
-
-  pieChart(
-    pieGender,
-    male,
-    female,
-    other,
-    pieMaleStat,
-    pieFemaleStat,
-    pieOtherStat,
-    deepGreen,
-    deepPurple,
-    blue,
-    data
-  );
-
-  let idx = 0;
-  let sliced = 8;
-  let perPage = 8;
-
-  let tableData = data.slice(idx * perPage, sliced);
-
-  // loadtable
-  loadTable(tableData);
-
-  let students = document.querySelector("#tableBody").querySelectorAll("tr");
-
-  // pagination
-
-  tableArrowRight.addEventListener("click", () => {
-    idx++;
-    // sliced += 8;
-    changeTable(idx, paginationLists, data, sliced, perPage);
-    clickStudents(students, data, idx, perPage, sliced);
-  });
-
-  tableArrowLeft.addEventListener("click", () => {
-    idx--;
-    // sliced -= 8;
-    changeTable(idx, paginationLists, data, sliced, perPage);
-    clickStudents(students, data, idx, perPage, sliced);
-  });
-
-  paginationLists.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      idx = +e.target.dataset.index;
-      changeTable(idx, paginationLists, data, sliced, perPage);
-      clickStudents(students, data, idx, perPage, sliced);
-    });
-  });
-
-  sortBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      sortBtns.forEach((btns) => {
-        if (btn !== btns) btns.classList.remove("rotate");
-      });
-
-      btn.classList.toggle("rotate");
-      sortTable(e, data, idx, perPage, sliced);
-      clickStudents(students, data, idx, perPage, sliced);
-    });
-  });
-
-  profileImage.src = tableData[0].picture;
-  profileName.textContent = tableData[0].name;
-  profileAge.textContent = `Age: ${tableData[0].age}`;
-  profileGender.textContent = `Gender: ${tableData[0].gender}`;
-
-  clickStudents(students, data, idx, perPage, sliced);
-
-  // select.addEventListener("click", (e) => {
-  //   console.log(e.target);
-  //   sortTable(e, data, idx, perPage, sliced);
-  // });
-};
+  studentsContent(data);
+}
 
 studentData();
 
@@ -424,6 +346,10 @@ function clickStudents(
   let tableData = data.slice(idx * perPage, sliced * (idx + 1));
   students = document.getElementById(`${table}`).querySelectorAll("tr");
 
+  if (table === "tableTeacher") {
+    document.querySelector(".instructor").style.display = "block";
+  }
+
   students.forEach((student) => {
     student.addEventListener("click", (e) => {
       students.forEach((el) => {
@@ -442,11 +368,6 @@ function clickStudents(
       profileAge.textContent = `Age: ${singleStudent[0].age}`;
       profileGender.textContent = `Gender: ${singleStudent[0].gender}`;
       profileTrack.textContent = singleStudent[0].track;
-
-      if (table === "tableTeacher") {
-        document.querySelector(".instructor").style.display = "block";
-        document.querySelector(".profile__tracks").style.display = "block";
-      }
     });
   });
 }
@@ -462,13 +383,6 @@ function throttle(cb, delay = 400) {
   };
 }
 
-// students.forEach((student) => {
-//   student.addEventListener("click", (e) => {
-//     student.parentNode.style.backgroundColor = green;
-//     console.log("student");
-//   });
-// });
-
 async function teachersData() {
   const res = await fetch("./teachers.json");
   let data = await res.json();
@@ -477,26 +391,37 @@ async function teachersData() {
   loadTeachers(data);
 
   let teachers = document.getElementById("tableTeacher").querySelectorAll("tr");
+
+  //add active to teacher row
+  teachers[0].classList.add("active");
+
   clickStudents(teachers, data, 0, 0, teachers.length, "tableTeacher");
   let btn = document.querySelector('[data-value="teacher-name"]');
 
-  btn.addEventListener("click", (e) => {
-    if (e.target.dataset.value === "teacher-name") {
+  let change = true;
+  btn.addEventListener("click", () => {
+    if (!change) {
       data = data.sort((a, b) => {
         return a.name > b.name ? 1 : -1;
       });
-      e.target.dataset.value = "teacher-name-rev";
-    } else if (e.target.dataset.value === "teacher-name-rev") {
+    }
+    if (change) {
       data = data.sort((a, b) => {
         return a.name > b.name ? -1 : 1;
       });
-      e.target.dataset.value = "teacher-name";
-    } else {
-      data = data;
     }
+    change = !change;
 
     loadTeachers(data);
+    clickStudents(teachers, data, 0, 0, teachers.length, "tableTeacher");
   });
+
+  if (!loadStudentInfo) {
+    profileImage.src = data[0].picture;
+    profileName.textContent = data[0].name;
+    profileAge.textContent = `Age: ${data[0].age}`;
+    profileGender.textContent = `Gender: ${data[0].gender}`;
+  }
 }
 
 teachersData();
@@ -517,6 +442,147 @@ function loadTeachers(data) {
 
     tableBody.innerHTML += row;
   }
+}
+
+function studentsContent(data) {
+  let ageGrade1 = data.filter((el) => el.age > 17 && el.age <= 20).length;
+  let ageGrade2 = data.filter((el) => el.age > 20 && el.age <= 25).length;
+  let ageGrade3 = data.filter((el) => el.age > 26 && el.age <= 30).length;
+  let ageGrade4 = data.filter((el) => el.age > 31 && el.age <= 35).length;
+
+  age1Stat.textContent = ageGrade1;
+  age2Stat.textContent = ageGrade2;
+  age3Stat.textContent = ageGrade3;
+  age4Stat.textContent = ageGrade4;
+
+  let maxAgeLength = Math.max(ageGrade1, ageGrade2, ageGrade3, ageGrade4);
+
+  let ageHeight1 = ((ageGrade1 / maxAgeLength) * 90).toFixed(2);
+  let ageHeight2 = ((ageGrade2 / maxAgeLength) * 90).toFixed(2);
+  let ageHeight3 = ((ageGrade3 / maxAgeLength) * 90).toFixed(2);
+  let ageHeight4 = ((ageGrade4 / maxAgeLength) * 90).toFixed(2);
+
+  const cloud = data.filter((el) => el.track === "cloud").length;
+  const frontend = data.filter((el) => el.track === "frontend").length;
+  const backend = data.filter((el) => el.track === "backend").length;
+
+  const male = data.filter((el) => el.gender === "M").length;
+  const female = data.filter((el) => el.gender === "F").length;
+  const other = data.filter((el) => el.gender === "O").length;
+
+  const avgAge = data.reduce((prev, curr, _, { length }) => {
+    return prev + curr.age / length;
+  }, 0);
+
+  const age = data.map((el) => el.age);
+  const minAge = Math.min(...age);
+  const maxAge = Math.max(...age);
+
+  studentStat.textContent = data.length;
+  avgAgeStat.textContent = Math.floor(avgAge);
+  minAgeStat.textContent = minAge;
+  maxAgeStat.textContent = maxAge;
+
+  const positionForEachAge = [ageHeight1, ageHeight2, ageHeight3, ageHeight4];
+
+  // load line chart
+  BarChart(positionForEachAge);
+
+  // listen for resize on line-chart for responsive chart
+  window.addEventListener(
+    "resize",
+    throttle(() => {
+      BarChart(positionForEachAge);
+    })
+  );
+
+  pieChart(
+    pieTrack,
+    backend,
+    frontend,
+    cloud,
+    piebackendStat,
+    piefrontendStat,
+    piecloudStat,
+    green,
+    orange,
+    purple,
+    data
+  );
+
+  pieChart(
+    pieGender,
+    male,
+    female,
+    other,
+    pieMaleStat,
+    pieFemaleStat,
+    pieOtherStat,
+    deepGreen,
+    deepPurple,
+    blue,
+    data
+  );
+
+  let idx = 0;
+  let sliced = 8;
+  let perPage = 8;
+
+  let tableData = data.slice(idx * perPage, sliced);
+
+  // loadtable
+
+  loadTable(tableData);
+
+  let students = document.querySelector("#tableBody").querySelectorAll("tr");
+
+  // add active to the first row
+  students[0].classList.add("active");
+
+  // pagination
+
+  tableArrowRight.addEventListener("click", () => {
+    idx++;
+    // sliced += 8;
+    changeTable(idx, paginationLists, data, sliced, perPage);
+    clickStudents(students, data, idx, perPage, sliced);
+  });
+
+  tableArrowLeft.addEventListener("click", () => {
+    idx--;
+    // sliced -= 8;
+    changeTable(idx, paginationLists, data, sliced, perPage);
+    clickStudents(students, data, idx, perPage, sliced);
+  });
+
+  paginationLists.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      idx = +e.target.dataset.index;
+      changeTable(idx, paginationLists, data, sliced, perPage);
+      clickStudents(students, data, idx, perPage, sliced);
+    });
+  });
+
+  sortBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      sortBtns.forEach((btns) => {
+        if (btn !== btns) btns.classList.remove("rotate");
+      });
+
+      btn.classList.toggle("rotate");
+      sortTable(e, data, idx, perPage, sliced);
+      clickStudents(students, data, idx, perPage, sliced);
+    });
+  });
+
+  if (loadStudentInfo) {
+    profileImage.src = tableData[0].picture;
+    profileName.textContent = tableData[0].name;
+    profileAge.textContent = `Age: ${tableData[0].age}`;
+    profileGender.textContent = `Gender: ${tableData[0].gender}`;
+  }
+
+  clickStudents(students, data, idx, perPage, sliced);
 }
 
 // Intersection Observer (Scroll Animation)

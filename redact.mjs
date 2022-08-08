@@ -267,3 +267,47 @@ shareOnSocialMedia(whatsapp, "https://api.whatsapp.com/send?text=");
 shareOnSocialMedia(sms, "sms:?body=");
 
 document.querySelector("footer span").textContent = new Date().getFullYear();
+
+///////////////////// SCRAMBLE WORDS //////////////////////////////////
+
+let dict = "0123456789qwertyuiop!@#$%^&*()<>".split("");
+
+let el = document.querySelector(".scramble-text");
+
+function runStrings(count) {
+  let string = "";
+  for (let i = 0; i < count; i++) {
+    string += dict[Math.floor(Math.random() * dict.length)];
+  }
+  return string;
+}
+
+function init(str) {
+  let count = str.length;
+  let delay = 50;
+
+  let generate = setInterval(() => {
+    el.setAttribute("data-before", runStrings(count));
+    el.setAttribute("data-after", runStrings(count));
+
+    if (delay > 0) {
+      delay--;
+    } else {
+      if (count < str.length) {
+        el.textContent += str[str.length - count - 1];
+      }
+      count--;
+
+      if (count === -1) {
+        clearInterval(generate);
+      }
+    }
+  }, 32);
+  console.log("name");
+}
+init("Redacter by Circle 153");
+
+// setInterval(() => {
+//   el.textContent = "";
+//   init("Redacter by Circle 153");
+// }, 5000);
