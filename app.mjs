@@ -311,7 +311,10 @@ function startApp() {
 
 	function displayEtisalat(etisalat, val) {
 		for (let i = 0; i < etisalat.length; i++) {
-			if (val.includes(etisalat[i]) || val.includes(etisalat[i].slice(1, 5))) {
+			if (
+				val.includes(etisalat[i]) ||
+				(val.includes(etisalat[i].slice(1, 5)) && isCodeNigerian)
+			) {
 				imageEl.src = logos[1];
 				imageEl.style.opacity = "1";
 				mtnLogo = false;
@@ -320,7 +323,10 @@ function startApp() {
 	}
 	function displayGlo(glo, val) {
 		for (let i = 0; i < glo.length; i++) {
-			if (val.includes(glo[i]) || val.includes(glo[i].slice(1, 5))) {
+			if (
+				val.includes(glo[i]) ||
+				(val.includes(glo[i].slice(1, 5)) && isCodeNigerian)
+			) {
 				imageEl.src = logos[2];
 				mtnLogo = false;
 				imageEl.style.opacity = "1";
@@ -330,7 +336,10 @@ function startApp() {
 
 	function displayAirtel(airtel, val) {
 		for (let i = 0; i < airtel.length; i++) {
-			if (val.includes(airtel[i]) || val.includes(airtel[i].slice(1, 5))) {
+			if (
+				val.includes(airtel[i]) ||
+				(val.includes(airtel[i].slice(1, 5)) && isCodeNigerian)
+			) {
 				imageEl.src = logos[0];
 				mtnLogo = false;
 				imageEl.style.opacity = "1";
@@ -349,7 +358,7 @@ function startApp() {
 			} else {
 				phoneEl.maxLength = 10;
 			}
-			if (!val) {
+			if (!val || !isCodeNigerian) {
 				imageEl.style.opacity = "0";
 			}
 			for (let i = 0; i < allLines.length; i++) {
