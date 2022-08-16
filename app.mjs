@@ -7,7 +7,7 @@ function startApp() {
 	const phoneEl = document.getElementById("phone");
 	const imageEl = document.querySelector(".number-logo");
 	const form = document.querySelector(".form");
-	const links = document.querySelectorAll(".link");
+	// const links = document.querySelectorAll(".link");
 	const custom = document.querySelector(".custom-select");
 	const customOptions = document.querySelector(".custom-options");
 	const fixedOption = document.querySelector(".fixed-option");
@@ -284,8 +284,14 @@ function startApp() {
 			firstnameEl.value = "";
 
 			setTimeout(() => {
-				if (isDash) window.location.href = "dash.html";
-				else window.location.href = "redact.html";
+				if (isDash) window.location.href = "dashboard/dash.html";
+				else {
+					window.location.href = "./redact/redact.html";
+					console.log((window.location.href = "/redact/redact.html"));
+					// console.log(window.location.pathname);
+					// console.log(window.location.href);
+					// console.log(window.location);
+				}
 			}, 1000);
 		}
 	});
@@ -349,12 +355,24 @@ function startApp() {
 
 	//   this functions  displays the logo
 	//   and also the auto complete whenever something is typed into the input
+	function addSpace(e) {
+		if (e.target.value.startsWith(0)) {
+			e.target.value = e.target.value
+				.replace(/(\d{3})\D?(\d{4})\D?(\d{4})/, "$1 $2 $3")
+				.trim();
+		} else {
+			e.target.value = e.target.value
+				.replace(/(\d{2})\D?(\d{4})\D?(\d{4})/, "$1 $2 $3")
+				.trim();
+		}
+	}
 	function displayLogoAndAutoComplete(mtn, glo, airtel, etisalat, all) {
 		phoneEl.addEventListener("input", (e) => {
-			const val = e.target.value;
+			addSpace(e);
+			const val = e.target.value.split(" ").join("");
 			autocomplete(e, all, val, mtn, airtel, glo, etisalat);
 			if (val.startsWith("0")) {
-				phoneEl.maxLength = 11;
+				phoneEl.maxLength = 12;
 			} else {
 				phoneEl.maxLength = 10;
 			}

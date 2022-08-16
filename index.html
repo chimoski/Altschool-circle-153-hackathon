@@ -1,195 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Lora:ital,wght@1,400;1,700&family=Prompt:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Circle-153-Phonie</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&family=Lora:ital,wght@1,400;1,700&family=Prompt:wght@300;400&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<title>Circle-153-Phonie</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="preloader">
+			<div class="progress">0</div>
+		</div>
+		<div class="circle-153">
+			<div class="transparent-box overlay">
+				<div class="nav-error-message">
+					<div class="link-error-message">
+						<small class="link-message">Please Register First!</small>
+					</div>
+					<div class="btn-container">
+						<button id="okay-btn">Okay</button>
+					</div>
+				</div>
+			</div>
+			<section>
+				<nav>
+					<a href="/" class="altLogo">
+						Alt<span></span> <br />
+						school
+					</a>
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="preloader">
-      <div class="progress">0</div>
-    </div>
-    <div class="circle-153">
-      <div class="transparent-box overlay">
-        <div class="nav-error-message">
-          <div class="link-error-message">
-            <small class="link-message">Please Register First!</small>
-          </div>
-          <div class="btn-container">
-            <button id="okay-btn">Okay</button>
-          </div>
-        </div>
-      </div>
-      <section>
-        <nav>
-          <a href="/" class="altLogo">
-            Alt<span></span> <br />
-            school
-          </a>
+					<div class="links">
+						<a
+							class="link1"
+							href="./redact/redact.html"
+							target="_blank"
+							name="next"
+							>Redactr</a
+						>
+						<a
+							class="link2"
+							href="./dashboard/dash.html"
+							target="_blank"
+							name="next"
+							>SchoolStat</a
+						>
+					</div>
+				</nav>
+				<div class="wrapper">
+					<div class="left">
+						<h1>Phonie</h1>
+						<div class="form-container">
+							<form class="form" novalidate autocomplete="off">
+								<div class="namefield">
+									<div class="form-control">
+										<input
+											type="text"
+											name="firstname"
+											id="firstname"
+											class="form__input"
+											placeholder=" "
+											required
+										/>
+										<label for="firstname">First name</label>
+										<small></small>
+									</div>
+									<div class="form-control">
+										<input
+											type="text"
+											name="lastname"
+											id="lastname"
+											class="form__input"
+											placeholder=" "
+											required
+										/>
+										<label for="lastname">Last name</label>
+										<small></small>
+									</div>
+								</div>
+								<div class="form-control">
+									<input
+										type="email"
+										name="email"
+										id="email"
+										class="form__input"
+										placeholder=" "
+										required
+									/>
+									<label for="email">Email</label>
+									<small></small>
+								</div>
+								<div class="form-control form-control-number">
+									<input
+										type="text"
+										name="phone"
+										id="phone"
+										class="form__input form__input-number"
+										placeholder=" "
+										required
+									/>
+									<label for="phone">Phone-number</label>
+									<img src="" alt="logo" class="logo number-logo" />
+									<small></small>
+									<div class="custom-wrapper">
+										<div class="custom-select">
+											<div class="fixed-option">
+												<img src="./assets/naija.svg" alt="naija flag" /> +234
+											</div>
+											<button class="custom-arrow">
+												<i class="fa-solid fa-caret-down"></i>
+											</button>
+										</div>
+										<div class="custom-options">
+											<div class="option">
+												<img src="./assets/naija.svg" alt="naija flag" />
+												+234
+											</div>
+											<div class="option">
+												<img src="./assets/ghana.svg" alt="ghana flag" />
+												+233
+											</div>
+											<div class="option">
+												<img
+													src="./assets/southAfrica.svg"
+													alt="southAfrica flag"
+												/>
+												+27
+											</div>
+											<div class="option">
+												<img src="./assets/ethiopia.svg" alt="ethiopia flag" />
+												+251
+											</div>
+											<div class="option">
+												<img src="./assets/kenya.svg" alt="kenya flag" />
+												+254
+											</div>
+											<div class="option">
+												<img src="./assets/tunisia.svg" alt="tunisia flag" />
+												+216
+											</div>
+										</div>
+									</div>
+								</div>
 
-          <div class="links">
-            <a class="link1" href="./redact.html" target="_blank" name="next"
-              >Redactr</a
-            >
-            <a class="link2" href="./dash.html" target="_blank" name="next"
-              >SchoolStat</a
-            >
-          </div>
-        </nav>
-        <div class="wrapper">
-          <div class="left">
-            <h1>Phonie</h1>
-            <div class="form-container">
-              <form class="form" novalidate autocomplete="off">
-                <div class="namefield">
-                  <div class="form-control">
-                    <input
-                      type="text"
-                      name="firstname"
-                      id="firstname"
-                      class="form__input"
-                      placeholder=" "
-                      required
-                    />
-                    <label for="firstname">First name</label>
-                    <small></small>
-                  </div>
-                  <div class="form-control">
-                    <input
-                      type="text"
-                      name="lastname"
-                      id="lastname"
-                      class="form__input"
-                      placeholder=" "
-                      required
-                    />
-                    <label for="lastname">Last name</label>
-                    <small></small>
-                  </div>
-                </div>
-                <div class="form-control">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    class="form__input"
-                    placeholder=" "
-                    required
-                  />
-                  <label for="email">Email</label>
-                  <small></small>
-                </div>
-                <div class="form-control form-control-number">
-                  <input
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    class="form__input form__input-number"
-                    placeholder=" "
-                    required
-                  />
-                  <label for="phone">Phone-number</label>
-                  <img src="" alt="logo" class="logo number-logo" />
-                  <small></small>
-                  <div class="custom-wrapper">
-                    <div class="custom-select">
-                      <div class="fixed-option">
-                        <img src="./assets/naija.svg" alt="naija flag" /> +234
-                      </div>
-                      <button class="custom-arrow">
-                        <i class="fa-solid fa-caret-down"></i>
-                      </button>
-                    </div>
-                    <div class="custom-options">
-                      <div class="option">
-                        <img src="./assets/naija.svg" alt="naija flag" />
-                        +234
-                      </div>
-                      <div class="option">
-                        <img src="./assets/ghana.svg" alt="ghana flag" />
-                        +233
-                      </div>
-                      <div class="option">
-                        <img
-                          src="./assets/southAfrica.svg"
-                          alt="southAfrica flag"
-                        />
-                        +27
-                      </div>
-                      <div class="option">
-                        <img src="./assets/ethiopia.svg" alt="ethiopia flag" />
-                        +251
-                      </div>
-                      <div class="option">
-                        <img src="./assets/kenya.svg" alt="kenya flag" />
-                        +254
-                      </div>
-                      <div class="option">
-                        <img src="./assets/tunisia.svg" alt="tunisia flag" />
-                        +216
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <button type="submit" class="btn-submit">Submit</button>
-                <p class="validated"></p>
-              </form>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-text">
-              <h2>Phonie By Circle 153</h2>
-              <div class="panel-animate">
-                <p>Circle-153 to the</p>
-                <ul class="content__container__list panel-list">
-                  <li class="content__container__list__item panel-item">
-                    world!
-                  </li>
-                  <li class="content__container__list__item panel-item">
-                    moon!
-                  </li>
-                  <li class="content__container__list__item panel-item">
-                    universe!
-                  </li>
-                  <li class="content__container__list__item panel-item">
-                    globe!
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="panel-image">
-              <img src="./assets/altSchoolers.svg" alt="students" />
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
-    <script src="index.mjs" type="module"></script>
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
-    <footer>
-      <a
-        href="https://github.com/chimoski/Altschool-circle-153-phonie"
-        target="_blank"
-        >&copy copyright Circle-153 year <span class="date"></span>
-      </a>
-    </footer>
-  </body>
+								<button type="submit" class="btn-submit">Submit</button>
+								<p class="validated"></p>
+							</form>
+						</div>
+					</div>
+					<div class="panel">
+						<div class="panel-text">
+							<h2>Phonie By Circle 153</h2>
+							<div class="panel-animate">
+								<p>Circle-153 to the</p>
+								<ul class="content__container__list panel-list">
+									<li class="content__container__list__item panel-item">
+										world!
+									</li>
+									<li class="content__container__list__item panel-item">
+										moon!
+									</li>
+									<li class="content__container__list__item panel-item">
+										universe!
+									</li>
+									<li class="content__container__list__item panel-item">
+										globe!
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel-image">
+							<img src="./assets/altSchoolers.svg" alt="students" />
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- // ============= EEND DO NOT EDIT ============== // -->
+		<script src="index.mjs" type="module"></script>
+		<!-- // ============= EEND DO NOT EDIT ============== // -->
+		<footer>
+			<a
+				href="https://github.com/chimoski/Altschool-circle-153-phonie"
+				target="_blank"
+				>&copy copyright Circle-153 year <span class="date"></span>
+			</a>
+		</footer>
+	</body>
 </html>
